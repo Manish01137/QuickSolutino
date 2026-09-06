@@ -1,0 +1,83 @@
+import {
+  Globe,
+  Globe2,
+  Clock,
+  Users,
+  MapPin,
+  MapPinned,
+  Layers,
+  ShieldCheck,
+  Zap,
+  UserCheck,
+  Settings2,
+  Wallet,
+  HandMetal,
+  Wrench,
+  Server,
+  Monitor,
+  Database,
+  Cable,
+  Rocket,
+  BadgeCheck,
+  Warehouse,
+  Hammer,
+  Truck,
+  Share2,
+  TrendingUp,
+  Gauge,
+  Handshake,
+  LayoutGrid,
+  ClipboardCheck,
+  ShoppingCart,
+  Network,
+  Flag,
+  type LucideIcon,
+} from "lucide-react";
+
+export const icons: Record<string, LucideIcon> = {
+  globe: Globe,
+  globe2: Globe2,
+  clock: Clock,
+  users: Users,
+  mapPin: MapPin,
+  mapPinned: MapPinned,
+  layers: Layers,
+  shieldCheck: ShieldCheck,
+  zap: Zap,
+  userCheck: UserCheck,
+  settings2: Settings2,
+  wallet: Wallet,
+  handMetal: HandMetal,
+  wrench: Wrench,
+  server: Server,
+  monitor: Monitor,
+  database: Database,
+  cable: Cable,
+  rocket: Rocket,
+  badgeCheck: BadgeCheck,
+  warehouse: Warehouse,
+  hammer: Hammer,
+  truck: Truck,
+  share2: Share2,
+  trendingUp: TrendingUp,
+  gauge: Gauge,
+  handshake: Handshake,
+  layoutGrid: LayoutGrid,
+  clipboardCheck: ClipboardCheck,
+  shoppingCart: ShoppingCart,
+  networkIcon: Network,
+  flagIndia: Flag,
+};
+
+export function Icon({
+  name,
+  className,
+  strokeWidth = 1.75,
+}: {
+  name: string;
+  className?: string;
+  strokeWidth?: number;
+}) {
+  const Cmp = icons[name] ?? Globe;
+  return <Cmp className={className} strokeWidth={strokeWidth} />;
+}

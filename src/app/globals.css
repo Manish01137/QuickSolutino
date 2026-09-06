@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-ink: #0f172a;
+  --color-body: #5b6472;
+  --color-alt-bg: #f7f9fc;
+  --color-border: #e7eaf0;
+  --color-chip: #eaf1fe;
+  --color-dark-1: #0b1b3a;
+  --color-dark-2: #12294f;
+  --color-dot: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-ink: var(--color-ink);
+  --color-body: var(--color-body);
+  --color-alt-bg: var(--color-alt-bg);
+  --color-border: var(--color-border);
+  --color-chip: var(--color-chip);
+  --color-dark-1: var(--color-dark-1);
+  --color-dark-2: var(--color-dark-2);
+  --color-dot: var(--color-dot);
+
+  --font-sans: var(--font-jakarta);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.dot-grid {
+  background-image: radial-gradient(var(--color-dot) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.eyebrow {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.text-balance-pretty {
+  text-wrap: pretty;
+}
