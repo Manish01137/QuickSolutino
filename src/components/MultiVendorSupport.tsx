@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   vendorLogos,
   vendorIcons,
@@ -8,7 +9,6 @@ import { Icon } from "./ui/Icon";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 import { Button } from "./ui/Button";
-import { WorldMapArt } from "./illustrations/WorldMapArt";
 
 export function MultiVendorSupport() {
   return (
@@ -31,7 +31,7 @@ export function MultiVendorSupport() {
               {vendorLogos.map((logo) => (
                 <span
                   key={logo}
-                  className="text-sm font-bold tracking-wide text-[var(--color-body)] grayscale transition-colors hover:text-[var(--color-primary)]"
+                  className="inline-block text-sm font-bold tracking-wide text-[var(--color-body)] transition-all duration-300 hover:scale-110 hover:text-[var(--color-primary)]"
                 >
                   {logo}
                 </span>
@@ -42,11 +42,11 @@ export function MultiVendorSupport() {
               {vendorIcons.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-alt-bg)] px-4 py-2"
+                  className="group flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-alt-bg)] px-4 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:bg-white hover:shadow-[0_10px_20px_-10px_rgba(214,32,39,0.35)]"
                 >
                   <Icon
                     name={item.icon}
-                    className="h-4 w-4 text-[var(--color-primary)]"
+                    className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110"
                   />
                   <span className="text-xs font-semibold text-[var(--color-ink)]">
                     {item.label}
@@ -67,15 +67,21 @@ export function MultiVendorSupport() {
               100+ Countries. One Partner.
             </h2>
 
-            <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-alt-bg)] p-4">
-              <WorldMapArt className="w-full" />
+            <div className="group mt-6 overflow-hidden rounded-2xl border border-[var(--color-border)]">
+              <Image
+                src="/global-coverage.jpg"
+                alt="Quick Solutions global coverage map spanning 100+ countries"
+                width={1672}
+                height={941}
+                className="w-full transition-transform duration-500 ease-out group-hover:scale-105"
+              />
             </div>
 
             <RevealGroup className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
               {regions.map((region) => (
                 <RevealItem
                   key={region.name}
-                  className="rounded-xl border border-[var(--color-border)] p-4"
+                  className="rounded-xl border border-[var(--color-border)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_16px_32px_-18px_rgba(214,32,39,0.25)]"
                 >
                   <p className="text-sm font-bold text-[var(--color-ink)]">
                     {region.name}
@@ -91,11 +97,11 @@ export function MultiVendorSupport() {
               {globalReachIcons.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-center gap-2 rounded-full border border-[var(--color-border)] px-3.5 py-2"
+                  className="group flex items-center gap-2 rounded-full border border-[var(--color-border)] px-3.5 py-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-[0_10px_20px_-10px_rgba(214,32,39,0.35)]"
                 >
                   <Icon
                     name={item.icon}
-                    className="h-3.5 w-3.5 text-[var(--color-primary)]"
+                    className="h-3.5 w-3.5 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110"
                   />
                   <span className="text-xs font-semibold text-[var(--color-ink)]">
                     {item.label}

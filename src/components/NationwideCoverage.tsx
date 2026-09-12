@@ -24,9 +24,9 @@ export function NationwideCoverage() {
               {indiaStats.map((item) => (
                 <RevealItem
                   key={item.label}
-                  className="flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3"
+                  className="group flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-white px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-[0_14px_28px_-18px_rgba(214,32,39,0.3)]"
                 >
-                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-chip)] text-[var(--color-primary)]">
+                  <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-chip)] text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110">
                     <Icon name={item.icon} className="h-4 w-4" />
                   </div>
                   <span className="text-sm font-medium text-[var(--color-ink)]">
@@ -46,17 +46,19 @@ export function NationwideCoverage() {
 
             <RevealGroup className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
               {whyQuickSolutions.map((item) => (
-                <RevealItem key={item.title} className="flex gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[var(--color-primary)] shadow-sm">
-                    <Icon name={item.icon} className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-[var(--color-ink)]">
-                      {item.title}
-                    </p>
-                    <p className="mt-1 text-xs leading-relaxed text-[var(--color-body)]">
-                      {item.description}
-                    </p>
+                <RevealItem key={item.title}>
+                  <div className="group flex h-full gap-3 rounded-xl border border-transparent p-2 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-border)] hover:bg-white hover:shadow-[0_14px_28px_-18px_rgba(15,23,42,0.2)]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[var(--color-primary)] shadow-sm transition-transform duration-300 group-hover:scale-110">
+                      <Icon name={item.icon} className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-[var(--color-ink)]">
+                        {item.title}
+                      </p>
+                      <p className="mt-1 text-xs leading-relaxed text-[var(--color-body)]">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </RevealItem>
               ))}

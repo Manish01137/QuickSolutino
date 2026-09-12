@@ -1,11 +1,9 @@
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Solutions", href: "#solutions" },
-  { label: "Industries", href: "#industries" },
-  { label: "Global Coverage", href: "#global-coverage" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "About Us", href: "/#about" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const stats = [
@@ -50,31 +48,37 @@ export const primaryServices = [
     number: "01",
     icon: "handMetal",
     title: "Smart Hands & Remote Hands",
+    slug: "smart-hands-remote-hands",
   },
   {
     number: "02",
     icon: "wrench",
     title: "Third-Party Hardware Maintenance",
+    slug: "third-party-hardware-maintenance",
   },
   {
     number: "03",
     icon: "server",
     title: "Server, Storage & Network Support",
+    slug: "server-storage-network-support",
   },
   {
     number: "04",
     icon: "monitor",
     title: "IMAC & End-User Computing",
+    slug: "imac-end-user-computing",
   },
   {
     number: "05",
     icon: "database",
     title: "Data Center Support",
+    slug: "data-center-support",
   },
   {
     number: "06",
     icon: "cable",
     title: "Structured Cabling & Site Surveys",
+    slug: "structured-cabling-site-surveys",
   },
 ];
 
@@ -83,26 +87,25 @@ export const secondaryServices = [
     number: "07",
     icon: "rocket",
     title: "Project Rollouts, Migrations & Deployments",
+    slug: "project-rollouts-migrations-deployments",
   },
   {
     number: "08",
     icon: "badgeCheck",
     title: "Dedicated Onsite & Resident Engineers",
+    slug: "dedicated-onsite-resident-engineers",
   },
   {
     number: "09",
     icon: "warehouse",
     title: "Warehousing, Logistics & Spare Management",
+    slug: "warehousing-logistics-spare-management",
   },
   {
     number: "10",
-    icon: "hammer",
-    title: "Projects & Installations",
-  },
-  {
-    number: "11",
     icon: "truck",
     title: "Data Center & Office Relocations",
+    slug: "data-center-office-relocations",
   },
 ];
 

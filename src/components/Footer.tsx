@@ -8,19 +8,28 @@ const footerColumns = [
   {
     title: "Services",
     links: [
-      "Smart Hands & Remote Hands",
-      "Server, Storage & Network Support",
-      "Data Center Support",
-      "Project Rollouts & Migrations",
+      { label: "Smart Hands & Remote Hands", href: "/services/smart-hands-remote-hands" },
+      { label: "Server, Storage & Network Support", href: "/services/server-storage-network-support" },
+      { label: "Data Center Support", href: "/services/data-center-support" },
+      { label: "Project Rollouts & Migrations", href: "/services/project-rollouts-migrations-deployments" },
     ],
   },
   {
     title: "Company",
-    links: ["About Us", "Industries", "Global Coverage", "Contact"],
+    links: [
+      { label: "About Us", href: "/#about" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Global Coverage", href: "/#global-coverage" },
+      { label: "Contact", href: "/#contact" },
+    ],
   },
   {
     title: "Legal",
-    links: ["Privacy Policy", "Terms of Service", "Service Level Agreement"],
+    links: [
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
+      { label: "Service Level Agreement", href: "#" },
+    ],
   },
 ];
 
@@ -38,23 +47,23 @@ export function Footer() {
             <div className="mt-6 space-y-3">
               <a
                 href="mailto:sales@quick-solutions.in"
-                className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-white"
+                className="group flex items-center gap-2.5 text-sm text-slate-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
               >
-                <Mail className="h-4 w-4 text-[var(--color-primary)]" />
+                <Mail className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" />
                 sales@quick-solutions.in
               </a>
               <a
                 href="tel:+919586777229"
-                className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-white"
+                className="group flex items-center gap-2.5 text-sm text-slate-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
               >
-                <Phone className="h-4 w-4 text-[var(--color-primary)]" />
+                <Phone className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" />
                 +91 95867 77229
               </a>
               <a
                 href="https://www.quick-solutions.in"
-                className="flex items-center gap-2.5 text-sm text-slate-300 hover:text-white"
+                className="group flex items-center gap-2.5 text-sm text-slate-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
               >
-                <Globe className="h-4 w-4 text-[var(--color-primary)]" />
+                <Globe className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" />
                 www.quick-solutions.in
               </a>
             </div>
@@ -65,12 +74,12 @@ export function Footer() {
               <p className="text-sm font-bold text-white">{col.title}</p>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <Link
-                      href="#"
-                      className="text-sm text-slate-400 hover:text-white"
+                      href={link.href}
+                      className="inline-block text-sm text-slate-400 transition-all duration-200 hover:translate-x-1 hover:text-white"
                     >
-                      {link}
+                      {link.label}
                     </Link>
                   </li>
                 ))}
@@ -88,20 +97,32 @@ export function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-xs text-slate-400 hover:text-white"
+                className="text-xs text-slate-400 transition-colors duration-200 hover:text-white"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="#" aria-label="LinkedIn" className="text-slate-400 hover:text-white">
+            <Link
+              href="#"
+              aria-label="LinkedIn"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
+            >
               <LinkedinIcon />
             </Link>
-            <Link href="#" aria-label="X (Twitter)" className="text-slate-400 hover:text-white">
+            <Link
+              href="#"
+              aria-label="X (Twitter)"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
+            >
               <XIcon />
             </Link>
-            <Link href="#" aria-label="Facebook" className="text-slate-400 hover:text-white">
+            <Link
+              href="#"
+              aria-label="Facebook"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
+            >
               <FacebookIcon />
             </Link>
           </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { primaryServices, secondaryServices } from "@/data/content";
 import { Icon } from "./ui/Icon";
 import { SectionHeading } from "./ui/SectionHeading";
@@ -17,42 +18,48 @@ export function Services() {
         <RevealGroup className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {primaryServices.map((service) => (
             <RevealItem key={service.number}>
-              <div className="group h-full rounded-2xl border border-[var(--color-border)] bg-white p-7 transition-shadow duration-300 hover:shadow-[0_20px_40px_-16px_rgba(15,23,42,0.15)]">
+              <Link
+                href={`/services/${service.slug}`}
+                className="group block h-full rounded-2xl border border-[var(--color-border)] bg-white p-7 transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-primary)]/30 hover:shadow-[0_24px_44px_-18px_rgba(214,32,39,0.3)]"
+              >
                 <div className="flex items-center justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-chip)] text-[var(--color-primary)]">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--color-chip)] text-[var(--color-primary)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                     <Icon name={service.icon} className="h-6 w-6" />
                   </div>
-                  <span className="text-sm font-bold text-[var(--color-border)] group-hover:text-[var(--color-primary)]">
+                  <span className="text-sm font-bold text-[var(--color-border)] transition-colors duration-300 group-hover:text-[var(--color-primary)]">
                     {service.number}
                   </span>
                 </div>
-                <h3 className="mt-5 text-base font-bold text-[var(--color-ink)]">
+                <h3 className="mt-5 text-base font-bold text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-primary)]">
                   {service.title}
                 </h3>
-              </div>
+              </Link>
             </RevealItem>
           ))}
         </RevealGroup>
 
         {/* secondary services — desktop row */}
-        <RevealGroup className="mt-6 hidden gap-5 sm:grid sm:grid-cols-5">
+        <RevealGroup className="mt-6 hidden gap-5 sm:grid sm:grid-cols-4">
           {secondaryServices.map((service) => (
             <RevealItem key={service.number}>
-              <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-6 text-center">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-chip)] text-[var(--color-primary)]">
+              <Link
+                href={`/services/${service.slug}`}
+                className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-primary)]/30 hover:shadow-[0_24px_44px_-18px_rgba(214,32,39,0.3)]"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-chip)] text-[var(--color-primary)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                   <Icon name={service.icon} className="h-5 w-5" />
                 </div>
-                <p className="text-xs font-semibold leading-snug text-[var(--color-ink)]">
+                <p className="text-xs font-semibold leading-snug text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-primary)]">
                   {service.title}
                 </p>
-              </div>
+              </Link>
             </RevealItem>
           ))}
         </RevealGroup>
 
         {/* secondary services — mobile CTA */}
         <div className="mt-8 flex justify-center sm:hidden">
-          <Button href="#services" variant="outline" arrow>
+          <Button href="/services" variant="outline" arrow>
             View All Service
           </Button>
         </div>

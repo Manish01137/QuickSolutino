@@ -13,45 +13,6 @@ export type MapArt = {
   hubs: MapPoint[];
 };
 
-const regionHubs = [
-  { lat: 40.7128, lng: -74.006, label: "Americas" },
-  { lat: 51.5074, lng: -0.1278, label: "Europe" },
-  { lat: 25.2048, lng: 55.2708, label: "Middle East" },
-  { lat: 28.6139, lng: 77.209, label: "Asia Pacific" },
-];
-
-let worldMapCache: MapArt | null = null;
-
-export function getWorldMap(): MapArt {
-  if (worldMapCache) return worldMapCache;
-
-  const map = new DottedMap({ height: 56, grid: "diagonal" });
-
-  regionHubs.forEach((hub) => {
-    map.addPin({
-      lat: hub.lat,
-      lng: hub.lng,
-      data: { hub: true, label: hub.label },
-    });
-  });
-
-  const points = map.getPoints();
-  const dots: MapPoint[] = [];
-  const hubs: MapPoint[] = [];
-
-  for (const p of points) {
-    const data = p.data as MapPoint["data"];
-    if (data?.hub) {
-      hubs.push({ x: p.x, y: p.y, data });
-    } else {
-      dots.push({ x: p.x, y: p.y });
-    }
-  }
-
-  worldMapCache = { width: map.image.width, height: map.image.height, dots, hubs };
-  return worldMapCache;
-}
-
 const indiaCities = [
   { lat: 28.6139, lng: 77.209, label: "Delhi" },
   { lat: 19.076, lng: 72.8777, label: "Mumbai" },

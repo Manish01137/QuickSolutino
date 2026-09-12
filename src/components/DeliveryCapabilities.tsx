@@ -17,11 +17,11 @@ export function DeliveryCapabilities() {
         <RevealGroup className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
           {deliveryCapabilities.map((item) => (
             <RevealItem key={item.title}>
-              <div className="flex h-full flex-col items-center gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-5 text-center">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-chip)] text-[var(--color-primary)]">
+              <div className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-5 text-center transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-primary)]/30 hover:shadow-[0_20px_36px_-18px_rgba(214,32,39,0.3)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--color-chip)] text-[var(--color-primary)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
                   <Icon name={item.icon} className="h-5 w-5" />
                 </div>
-                <p className="text-xs font-semibold leading-snug text-[var(--color-ink)]">
+                <p className="text-xs font-semibold leading-snug text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-primary)]">
                   {item.title}
                 </p>
               </div>

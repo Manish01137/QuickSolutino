@@ -1,6 +1,6 @@
+import Image from "next/image";
 import { Button } from "./ui/Button";
 import { Reveal } from "./ui/Reveal";
-import { HeroIllustration } from "./illustrations/HeroIllustration";
 
 export function Hero() {
   return (
@@ -32,8 +32,15 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.15}>
-          <HeroIllustration />
+        <Reveal delay={0.15} className="group overflow-hidden rounded-2xl">
+          <Image
+            src="/hero-infrastructure.jpg"
+            alt="Quick Solutions IT infrastructure — servers, cloud and global support network"
+            width={2200}
+            height={1294}
+            priority
+            className="w-full transition-transform duration-700 ease-out group-hover:scale-105"
+          />
         </Reveal>
       </div>
     </section>
