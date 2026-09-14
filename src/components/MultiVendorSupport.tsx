@@ -1,14 +1,10 @@
 import Image from "next/image";
-import {
-  vendorLogos,
-  vendorIcons,
-  regions,
-  globalReachIcons,
-} from "@/data/content";
+import { vendorIcons, regions, globalReachIcons } from "@/data/content";
 import { Icon } from "./ui/Icon";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 import { Button } from "./ui/Button";
+import { VendorLogos } from "./ui/VendorLogos";
 
 export function MultiVendorSupport() {
   return (
@@ -27,16 +23,7 @@ export function MultiVendorSupport() {
               across their IT infrastructure.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-              {vendorLogos.map((logo) => (
-                <span
-                  key={logo}
-                  className="inline-block text-sm font-bold tracking-wide text-[var(--color-body)] transition-all duration-300 hover:scale-110 hover:text-[var(--color-primary)]"
-                >
-                  {logo}
-                </span>
-              ))}
-            </div>
+            <VendorLogos className="mt-8" />
 
             <div className="mt-8 flex flex-wrap gap-4">
               {vendorIcons.map((item) => (

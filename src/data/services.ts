@@ -2,6 +2,7 @@ export type ServiceSection = {
   heading: string;
   items?: string[];
   body?: string;
+  showVendorLogos?: boolean;
 };
 
 export type ServiceHighlight = {
@@ -125,7 +126,8 @@ export const services: Service[] = [
           "Data center hardware",
           "Enterprise IT infrastructure",
         ],
-        body: "Quick Solutions has experience supporting major technology brands including HP, IBM, Dell, Cisco, Fujitsu, NetApp, EMC, Hitachi, D-Link, Sun and Oracle.",
+        body: "Quick Solutions has experience supporting major technology brands including:",
+        showVendorLogos: true,
       },
       {
         heading: "Benefits",
@@ -231,7 +233,8 @@ export const services: Service[] = [
       },
       {
         heading: "Multi-Vendor Infrastructure Support",
-        body: "Quick Solutions supports infrastructure from leading vendors including HP, IBM, Dell, Cisco, Fujitsu, NetApp, EMC, Hitachi, D-Link, Oracle and Sun.",
+        body: "Quick Solutions supports infrastructure from leading vendors including:",
+        showVendorLogos: true,
       },
     ],
     ctaHeading: "Keep Your IT Infrastructure Running.",

@@ -110,17 +110,17 @@ export const secondaryServices = [
 ];
 
 export const vendorLogos = [
-  "HP",
-  "IBM",
-  "Dell",
-  "Cisco",
-  "Fujitsu",
-  "NetApp",
-  "EMC",
-  "Hitachi",
-  "D-Link",
-  "Sun",
-  "Oracle",
+  { name: "HP", src: "/vendors/hp.svg", widthClass: "w-9" },
+  { name: "IBM", src: "/vendors/ibm.svg", widthClass: "w-16" },
+  { name: "Dell", src: "/vendors/dell.svg", widthClass: "w-16" },
+  { name: "Cisco", src: "/vendors/cisco.svg", widthClass: "w-20" },
+  { name: "Fujitsu", src: "/vendors/fujitsu.svg", widthClass: "w-24" },
+  { name: "NetApp", src: "/vendors/netapp.png", widthClass: "w-24" },
+  { name: "EMC", src: "/vendors/emc.svg", widthClass: "w-16" },
+  { name: "Hitachi", src: "/vendors/hitachi.svg", widthClass: "w-20" },
+  { name: "D-Link", src: "/vendors/dlink.svg", widthClass: "w-20" },
+  { name: "Sun", src: "/vendors/sun.svg", widthClass: "w-16" },
+  { name: "Oracle", src: "/vendors/oracle.svg", widthClass: "w-20" },
 ];
 
 export const vendorIcons = [

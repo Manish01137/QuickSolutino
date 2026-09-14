@@ -6,6 +6,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { CheckList } from "@/components/ui/CheckList";
+import { VendorLogos } from "@/components/ui/VendorLogos";
 import { Reveal, RevealGroup, RevealItem, RevealScale } from "@/components/ui/Reveal";
 
 export async function generateStaticParams() {
@@ -90,6 +91,7 @@ export default async function ServicePage({
                   <CheckList items={section.items} />
                 </div>
               )}
+              {section.showVendorLogos && <VendorLogos className="mt-6" />}
             </Reveal>
           ))}
 
