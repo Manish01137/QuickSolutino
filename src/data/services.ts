@@ -20,6 +20,7 @@ export type Service = {
   slug: string;
   navTitle: string;
   icon: string;
+  iconImage: string;
   image: string;
   seoTitle: string;
   metaDescription: string;
@@ -39,8 +40,8 @@ export const services: Service[] = [
     slug: "smart-hands-remote-hands",
     navTitle: "Smart Hands & Remote Hands",
     icon: "handMetal",
-    image:
-      "https://images.unsplash.com/photo-1629837093109-11325d6e7afd?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Smart Hands & Remote Hands Services.png",
+    image: "/serviceImg/Smart Hands & Remote Hands Services.png",
     seoTitle: "Smart Hands & Remote Hands Services | Quick Solutions",
     metaDescription:
       "Reliable Smart Hands and Remote Hands IT support for data centers, servers, storage and networking infrastructure. Get skilled onsite engineers across India and 100+ countries.",
@@ -102,8 +103,8 @@ export const services: Service[] = [
     slug: "third-party-hardware-maintenance",
     navTitle: "Third-Party Hardware Maintenance",
     icon: "wrench",
-    image:
-      "https://images.unsplash.com/photo-1595633060827-ac7651e89a7a?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Third-Party Hardware Maintenance Services.png",
+    image: "/serviceImg/Third-Party Hardware Maintenance Services.png",
     seoTitle: "Third-Party Hardware Maintenance Services | Quick Solutions",
     metaDescription:
       "Reduce IT maintenance costs with reliable third-party hardware maintenance for servers, storage and networking equipment. Multi-vendor support with flexible SLA options.",
@@ -182,8 +183,8 @@ export const services: Service[] = [
     slug: "server-storage-network-support",
     navTitle: "Server, Storage & Network Support",
     icon: "server",
-    image:
-      "https://images.unsplash.com/photo-1584169417032-d34e8d805e8b?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Server, Storage & Network Support.png",
+    image: "/serviceImg/Server, Storage & Network Support.png",
     seoTitle: "Server, Storage & Network Support Services | Quick Solutions",
     metaDescription:
       "Expert server, storage and network infrastructure support for enterprise IT environments. Multi-vendor hardware support with 24x7 service and global coverage.",
@@ -246,8 +247,8 @@ export const services: Service[] = [
     slug: "imac-end-user-computing",
     navTitle: "IMAC & End-User Computing",
     icon: "monitor",
-    image:
-      "https://images.unsplash.com/photo-1618424181497-157f25b6ddd5?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/IMAC & End-User Computing Services.png",
+    image: "/serviceImg/IMAC & End-User Computing Services.png",
     seoTitle: "IMAC & End-User Computing Services | Quick Solutions",
     metaDescription:
       "Professional IMAC and end-user computing support for desktops, laptops, printers and workplace IT infrastructure. Nationwide onsite IT support across India.",
@@ -317,8 +318,8 @@ export const services: Service[] = [
     slug: "data-center-support",
     navTitle: "Data Center Support",
     icon: "database",
-    image:
-      "https://images.unsplash.com/photo-1639066648921-82d4500abf1a?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Data Center Support Services.png",
+    image: "/serviceImg/Data Center Support Services.png",
     seoTitle:
       "Data Center Support Services | Smart Hands & IT Infrastructure | Quick Solutions",
     metaDescription:
@@ -367,8 +368,8 @@ export const services: Service[] = [
     slug: "structured-cabling-site-surveys",
     navTitle: "Structured Cabling & Site Surveys",
     icon: "cable",
-    image:
-      "https://images.unsplash.com/photo-1683322499436-f4383dd59f5a?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Structured Cabling & Site Survey Services.png",
+    image: "/serviceImg/Structured Cabling & Site Survey Services.png",
     seoTitle: "Structured Cabling & Site Survey Services | Quick Solutions",
     metaDescription:
       "Professional structured cabling, network point installation and IT infrastructure site survey services for offices, data centers and enterprise environments.",
@@ -427,8 +428,8 @@ export const services: Service[] = [
     slug: "project-rollouts-migrations-deployments",
     navTitle: "Project Rollouts, Migrations & Deployments",
     icon: "rocket",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Project Rollouts, Migrations & Deployments.png",
+    image: "/serviceImg/Data Center & Office Relocation Services.png",
     seoTitle:
       "IT Project Rollouts, Migrations & Deployment Services | Quick Solutions",
     metaDescription:
@@ -490,8 +491,8 @@ export const services: Service[] = [
     slug: "dedicated-onsite-resident-engineers",
     navTitle: "Dedicated Onsite & Resident Engineers",
     icon: "badgeCheck",
-    image:
-      "https://images.unsplash.com/photo-1785682117028-6fcf2c0b515b?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Dedicated Onsite & Resident Engineers.png",
+    image: "/serviceImg/Dedicated Onsite & Resident Engineers.png",
     seoTitle: "Dedicated Onsite & Resident IT Engineers | Quick Solutions",
     metaDescription:
       "Deploy dedicated onsite and resident IT engineers for ongoing infrastructure support, data centers, enterprise IT environments and end-user support.",
@@ -558,8 +559,8 @@ export const services: Service[] = [
     slug: "warehousing-logistics-spare-management",
     navTitle: "Warehousing, Logistics & Spare Management",
     icon: "warehouse",
-    image:
-      "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/IT Warehousing, Logistics & Spare Management.png",
+    image: "/serviceImg/Data Center Support Services.png",
     seoTitle:
       "IT Warehousing, Logistics & Spare Management Services | Quick Solutions",
     metaDescription:
@@ -627,8 +628,8 @@ export const services: Service[] = [
     slug: "data-center-office-relocations",
     navTitle: "Data Center & Office Relocations",
     icon: "truck",
-    image:
-      "https://images.unsplash.com/photo-1783419538460-676cb89a0d19?w=1200&q=75&auto=format&fit=crop",
+    iconImage: "/ServiceIcon/Data Center & Office Relocation Services.png",
+    image: "/serviceImg/Data Center & Office Relocation Services.png",
     seoTitle: "Data Center & Office Relocation Services | Quick Solutions",
     metaDescription:
       "Professional data center and office relocation services including IT equipment planning, de-installation, transportation, installation and deployment support.",

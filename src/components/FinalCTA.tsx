@@ -36,7 +36,100 @@ export function FinalCTA() {
             </Button>
           </div>
         </Reveal>
+
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <ContactForm
+            title="Customer Inquiry"
+            description="Tell us what IT infrastructure support your business needs."
+            recipient="sales@quick-solutions.in"
+            submitLabel="Send Customer Inquiry"
+          />
+          <ContactForm
+            title="Partner With Us"
+            description="Join our delivery network or explore a partnership with Quick Solutions."
+            recipient="partnermanagement@quick-solutions.in"
+            submitLabel="Send Partner Inquiry"
+          />
+        </div>
       </div>
     </section>
+  );
+}
+
+function ContactForm({
+  title,
+  description,
+  recipient,
+  submitLabel,
+}: {
+  title: string;
+  description: string;
+  recipient: string;
+  submitLabel: string;
+}) {
+  return (
+    <form
+      action={`mailto:${recipient}`}
+      method="post"
+      encType="text/plain"
+      className="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm sm:p-8"
+    >
+      <h3 className="text-xl font-bold text-white">{title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-slate-300">{description}</p>
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <label className="text-sm font-semibold text-slate-200">
+          Name
+          <input
+            name="name"
+            required
+            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
+            placeholder="Your name"
+          />
+        </label>
+        <label className="text-sm font-semibold text-slate-200">
+          Company
+          <input
+            name="company"
+            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
+            placeholder="Company name"
+          />
+        </label>
+        <label className="text-sm font-semibold text-slate-200">
+          Email
+          <input
+            type="email"
+            name="email"
+            required
+            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
+            placeholder="you@company.com"
+          />
+        </label>
+        <label className="text-sm font-semibold text-slate-200">
+          Phone
+          <input
+            type="tel"
+            name="phone"
+            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
+            placeholder="Your phone number"
+          />
+        </label>
+      </div>
+      <label className="mt-4 block text-sm font-semibold text-slate-200">
+        Message
+        <textarea
+          name="message"
+          required
+          rows={4}
+          className="mt-2 w-full resize-y rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
+          placeholder="How can we help?"
+        />
+      </label>
+      <button
+        type="submit"
+        className="mt-5 inline-flex items-center rounded-lg bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
+      >
+        {submitLabel}
+      </button>
+    </form>
   );
 }

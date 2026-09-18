@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { Icon } from "@/components/ui/Icon";
 import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
@@ -43,8 +42,14 @@ export default function ServicesIndexPage() {
                   <span className="absolute right-4 top-4 text-xs font-bold text-white/70">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div className="absolute -bottom-6 left-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white text-[var(--color-primary)] shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105">
-                    <Icon name={service.icon} className="h-6 w-6" />
+                  <div className="absolute -bottom-8 left-5 flex h-18 w-18 items-center justify-center rounded-2xl bg-white p-1 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105">
+                    <Image
+                      src={service.iconImage}
+                      alt=""
+                      width={96}
+                      height={96}
+                      className="h-16 w-16 object-contain"
+                    />
                   </div>
                 </div>
                 <div className="flex flex-1 flex-col px-5 pb-6 pt-9">

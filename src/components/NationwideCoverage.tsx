@@ -1,8 +1,8 @@
 import { indiaStats, whyQuickSolutions } from "@/data/content";
+import Image from "next/image";
 import { Icon } from "./ui/Icon";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
-import { IndiaMapArt } from "./illustrations/IndiaMapArt";
 
 export function NationwideCoverage() {
   return (
@@ -16,8 +16,14 @@ export function NationwideCoverage() {
               One Partner. All of India.
             </h2>
 
-            <div className="mt-6 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white p-4">
-              <IndiaMapArt className="mx-auto h-auto w-full max-w-[280px]" />
+            <div className="group relative mt-6 aspect-[16/9] overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white shadow-[0_22px_45px_-30px_rgba(15,23,42,0.45)]">
+              <Image
+                src="/vendors/Globar coverage img.png"
+                alt="Global coverage from Quick Solutions with India as the head office"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
 
             <RevealGroup className="mt-6 space-y-3">

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Mail, Phone, Globe } from "lucide-react";
+import { BadgeCheck, Mail, Phone, Globe } from "lucide-react";
 import { Logo } from "./Logo";
 import { navLinks } from "@/data/content";
-import { LinkedinIcon, XIcon, FacebookIcon } from "./ui/SocialIcons";
+import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./ui/SocialIcons";
 
 const footerColumns = [
   {
@@ -67,6 +67,15 @@ export function Footer() {
                 www.quick-solutions.in
               </a>
             </div>
+            <div className="mt-7 flex items-start gap-3 border-t border-white/10 pt-5">
+              <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary)]" />
+              <div>
+                <p className="text-sm font-bold text-white">ISO 9001:2015</p>
+                <p className="mt-1 text-xs text-slate-400">
+                  Certificate number: 305026071787Q
+                </p>
+              </div>
+            </div>
           </div>
 
           {footerColumns.map((col) => (
@@ -105,21 +114,27 @@ export function Footer() {
           </nav>
           <div className="flex items-center gap-4">
             <Link
-              href="#"
+              href="https://www.linkedin.com/company/quick-solutions1"
+              target="_blank"
+              rel="noreferrer"
               aria-label="LinkedIn"
               className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
             >
               <LinkedinIcon />
             </Link>
             <Link
-              href="#"
-              aria-label="X (Twitter)"
+              href="https://www.instagram.com/quick.solutions11?igsi=MTNhdzU3dHRyYTg1bA=="
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
               className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
             >
-              <XIcon />
+              <InstagramIcon />
             </Link>
             <Link
-              href="#"
+              href="https://www.facebook.com/share/1G3fAaaVCr/"
+              target="_blank"
+              rel="noreferrer"
               aria-label="Facebook"
               className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
             >

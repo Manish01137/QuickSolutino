@@ -11,11 +11,11 @@ export function About() {
         <Reveal className="order-2 lg:order-1">
           <div className="group mx-auto max-w-xs lg:max-w-sm">
             <Image
-              src="/brand/q-emblem-3d.jpg"
-              alt="Quick Solutions emblem"
-              width={1180}
-              height={1080}
-              className="w-full rounded-3xl transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-1"
+              src="/vendors/About us img.png"
+              alt="Quick Solutions engineers supporting data center infrastructure"
+              width={1254}
+              height={1254}
+              className="w-full rounded-3xl object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-1"
             />
           </div>
         </Reveal>
