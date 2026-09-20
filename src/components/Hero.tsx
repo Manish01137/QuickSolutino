@@ -5,18 +5,6 @@ import { Reveal } from "./ui/Reveal";
 export function Hero() {
   return (
     <section id="home" className="relative isolate overflow-hidden bg-white">
-      <div className="absolute inset-y-0 right-0 -z-10 hidden w-[62%] lg:block">
-        <Image
-          src="/vendors/Hero Banner.png"
-          alt=""
-          fill
-          priority
-          sizes="62vw"
-          className="object-cover object-right"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
-      </div>
-
       <div className="relative mx-auto grid min-h-[620px] max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-8 lg:px-8">
         <div className="min-w-0 max-w-xl">
           <Reveal>
@@ -44,13 +32,17 @@ export function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={0.15} className="group relative hidden min-h-[360px] overflow-hidden rounded-3xl lg:block">
+        <Reveal
+          delay={0.15}
+          className="group relative hidden min-h-[360px] overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-alt-bg)] shadow-[0_24px_60px_-36px_rgba(214,32,39,0.45)] lg:block"
+        >
           <Image
-            src="/vendors/Hero Banner.png"
-            alt="Quick Solutions global IT infrastructure support"
+            src="/hero-infrastructure.jpg"
+            alt="IT infrastructure supporting businesses worldwide"
             fill
+            priority
             sizes="(min-width: 1024px) 50vw, 100vw"
-            className="object-cover object-right transition-transform duration-700 ease-out group-hover:scale-105"
+            className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
           />
         </Reveal>
       </div>

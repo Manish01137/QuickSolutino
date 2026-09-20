@@ -3,9 +3,7 @@ import { StatsStrip } from "@/components/StatsStrip";
 import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { MultiVendorSupport } from "@/components/MultiVendorSupport";
-import { NationwideCoverage } from "@/components/NationwideCoverage";
 import { IndustriesWeServe } from "@/components/IndustriesWeServe";
-import { DeliveryCapabilities } from "@/components/DeliveryCapabilities";
 import { FinalCTA } from "@/components/FinalCTA";
 
 export default function Home() {
@@ -16,9 +14,7 @@ export default function Home() {
       <About />
       <Services />
       <MultiVendorSupport />
-      <NationwideCoverage />
       <IndustriesWeServe />
-      <DeliveryCapabilities />
       <FinalCTA />
     </>
   );
