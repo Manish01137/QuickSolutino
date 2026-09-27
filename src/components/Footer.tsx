@@ -3,6 +3,7 @@ import { BadgeCheck, Mail, Phone, Globe } from "lucide-react";
 import { Logo } from "./Logo";
 import { navLinks } from "@/data/content";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./ui/SocialIcons";
+import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 
 const footerColumns = [
   {
@@ -37,8 +38,8 @@ export function Footer() {
   return (
     <footer className="mt-auto bg-[var(--color-dark-1)]">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <div>
+        <RevealGroup className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <RevealItem>
             <Logo dark />
             <p className="mt-4 max-w-xs text-sm text-slate-400">
               Your Local Service Provider — end-to-end IT infrastructure
@@ -76,10 +77,10 @@ export function Footer() {
                 </p>
               </div>
             </div>
-          </div>
+          </RevealItem>
 
           {footerColumns.map((col) => (
-            <div key={col.title}>
+            <RevealItem key={col.title}>
               <p className="text-sm font-bold text-white">{col.title}</p>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (
@@ -93,11 +94,11 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
+        <Reveal className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} Quick Solutions. All rights reserved.
           </p>
@@ -141,7 +142,7 @@ export function Footer() {
               <FacebookIcon />
             </Link>
           </div>
-        </div>
+        </Reveal>
       </div>
     </footer>
   );

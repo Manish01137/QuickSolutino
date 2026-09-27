@@ -49,13 +49,13 @@ export function MultiVendorSupport() {
 
           <Reveal delay={0.1} className="relative">
             <div className="absolute -right-20 -top-16 h-52 w-52 rounded-full border-[24px] border-[var(--color-primary)]/10" />
-            <div className="relative overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-white p-3 shadow-[0_24px_60px_-36px_rgba(214,32,39,0.45)]">
+            <div className="relative overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-transparent p-3 shadow-[0_24px_60px_-36px_rgba(214,32,39,0.45)]">
               <Image
                 src="/server_company_network.png"
                 alt="Server connected to multiple technology vendors"
                 width={1632}
                 height={972}
-                className="w-full rounded-[1.5rem] object-cover transition-transform duration-500 ease-out hover:scale-[1.02]"
+                className="w-full rounded-[1.5rem] object-cover mix-blend-multiply transition-transform duration-500 ease-out hover:scale-[1.02]"
               />
             </div>
           </Reveal>

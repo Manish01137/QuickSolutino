@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/Button";
@@ -86,9 +87,26 @@ function ServicesMobileAccordion({ onNavigate }: { onNavigate: () => void }) {
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-white/90 backdrop-blur">
+    <motion.header
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-shadow duration-300 ${
+        scrolled
+          ? "border-[var(--color-border)] shadow-[0_8px_24px_-18px_rgba(15,23,42,0.35)]"
+          : "border-transparent"
+      }`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         <Link href="/#home" aria-label="Quick Solutions home">
           <Logo />
@@ -125,32 +143,42 @@ export function Navbar() {
         </button>
       </div>
 
-      {open && (
-        <div className="border-t border-[var(--color-border)] bg-white px-6 py-4 lg:hidden">
-          <nav className="flex flex-col gap-4">
-            {navLinks.map((link) =>
-              link.label === "Services" ? (
-                <ServicesMobileAccordion
-                  key={link.label}
-                  onNavigate={() => setOpen(false)}
-                />
-              ) : (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-sm font-medium text-[var(--color-ink)]"
-                >
-                  {link.label}
-                </Link>
-              ),
-            )}
-          </nav>
-          <Button href="/#contact" className="mt-5 w-full justify-center">
-            Talk to an Expert
-          </Button>
-        </div>
-      )}
-    </header>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-[var(--color-border)] bg-white lg:hidden"
+          >
+            <div className="px-6 py-4">
+              <nav className="flex flex-col gap-4">
+                {navLinks.map((link) =>
+                  link.label === "Services" ? (
+                    <ServicesMobileAccordion
+                      key={link.label}
+                      onNavigate={() => setOpen(false)}
+                    />
+                  ) : (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setOpen(false)}
+                      className="text-sm font-medium text-[var(--color-ink)]"
+                    >
+                      {link.label}
+                    </Link>
+                  ),
+                )}
+              </nav>
+              <Button href="/#contact" className="mt-5 w-full justify-center">
+                Talk to an Expert
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

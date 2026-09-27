@@ -4,6 +4,7 @@ import { About } from "@/components/About";
 import { Services } from "@/components/Services";
 import { MultiVendorSupport } from "@/components/MultiVendorSupport";
 import { IndustriesWeServe } from "@/components/IndustriesWeServe";
+import { GlobalCoverage } from "@/components/GlobalCoverage";
 import { FinalCTA } from "@/components/FinalCTA";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Services />
       <MultiVendorSupport />
       <IndustriesWeServe />
+      <GlobalCoverage />
       <FinalCTA />
     </>
   );
