@@ -18,7 +18,7 @@ export function GlobalCoverage() {
           sizes="100vw"
           className="object-cover object-[65%_center] lg:object-right"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 sm:via-white/85 lg:via-white/55 to-white/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/25 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">

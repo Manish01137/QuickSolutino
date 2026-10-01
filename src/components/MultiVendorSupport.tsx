@@ -17,7 +17,7 @@ export function MultiVendorSupport() {
           sizes="100vw"
           className="object-cover object-right"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/75 sm:via-white/60 lg:via-white/35 to-white/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/25 to-transparent" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">

@@ -21,12 +21,12 @@ export function Services() {
                 href={`/services/${service.slug}`}
                 className="group flex h-full flex-col rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-[0_10px_30px_-24px_rgba(15,23,42,0.25)] transition-all duration-300 hover:-translate-y-2 hover:border-[var(--color-primary)]/30 hover:shadow-[0_24px_44px_-18px_rgba(214,32,39,0.3)] sm:p-6"
               >
-                <div className="flex h-16 w-16 items-center justify-center transition-transform duration-500 ease-out group-hover:-rotate-3 group-hover:scale-110 sm:h-20 sm:w-20">
+                <div className="flex h-20 w-20 items-center justify-center transition-transform duration-500 ease-out group-hover:-rotate-3 group-hover:scale-110 sm:h-28 sm:w-28">
                   <Image
                     src={service.iconImage}
                     alt=""
-                    width={96}
-                    height={96}
+                    width={128}
+                    height={128}
                     className="h-full w-full object-contain"
                   />
                 </div>

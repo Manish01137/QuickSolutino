@@ -15,7 +15,7 @@ export function Hero() {
           sizes="100vw"
           className="object-cover object-[78%_center] sm:object-[70%_center] lg:object-right"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 sm:via-white/55 lg:via-white/30 to-white/5" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/25 to-transparent" />
       </div>
 
       <div className="relative mx-auto min-h-[560px] max-w-7xl px-6 py-24 sm:min-h-[620px] lg:flex lg:min-h-[680px] lg:items-center lg:py-28 lg:px-8">
