@@ -1,22 +1,10 @@
-import Image from "next/image";
 import { Button } from "./ui/Button";
 import { Reveal } from "./ui/Reveal";
 
 export function FinalCTA() {
   return (
-    <section id="contact" className="relative overflow-hidden bg-[var(--color-dark-1)]">
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1600&q=75&auto=format&fit=crop"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-dark-1)] via-[var(--color-dark-1)]/95 to-[var(--color-dark-2)]/80" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">
+    <section id="contact" className="bg-[var(--color-dark-1)]">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">
         <Reveal className="max-w-2xl">
           <h2 className="text-[28px] font-extrabold leading-tight text-white sm:text-[34px] lg:text-[38px]">
             Keep Your IT Infrastructure Running.

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BadgeCheck, Mail, Phone, Globe } from "lucide-react";
+import { BadgeCheck, Mail, Phone, Globe, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
 import { navLinks } from "@/data/content";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./ui/SocialIcons";
@@ -67,6 +67,13 @@ export function Footer() {
                 <Globe className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" />
                 www.quick-solutions.in
               </a>
+              <div className="flex items-start gap-2.5 text-sm text-slate-300">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" />
+                <span>
+                  12th Floor, 1215, Ganesh Glory, Jagatpur Road, Sarkhej -
+                  Gandhinagar Hwy, Ahmedabad, Gujarat 382470
+                </span>
+              </div>
             </div>
             <div className="mt-7 flex items-start gap-3 border-t border-white/10 pt-5">
               <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary)]" />

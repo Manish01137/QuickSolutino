@@ -1,5 +1,4 @@
 import { regions, globalReachIcons } from "@/data/content";
-import Image from "next/image";
 import { Icon } from "./ui/Icon";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
@@ -11,18 +10,20 @@ export function GlobalCoverage() {
       className="relative isolate overflow-hidden bg-white"
     >
       <div className="absolute inset-0">
-        <Image
-          src="/globalcoveragbanner.png"
-          alt="World map showing Quick Solutions' global IT infrastructure support network"
-          fill
-          sizes="100vw"
-          className="object-cover object-[65%_center] lg:object-right"
+        <video
+          src="/VIDEO-2026-10-19-19-32-59.mp4"
+          poster="/globalcoveragbanner.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/25 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/25 to-white/10" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">
-        <Reveal className="max-w-2xl">
+        <Reveal className="max-w-2xl rounded-3xl bg-white/85 p-6 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.35)] backdrop-blur-sm sm:p-8">
           <Eyebrow>Global Coverage</Eyebrow>
           <h2 className="mt-3 text-[28px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px] lg:text-[38px]">
             Global Reach. Local Expertise.

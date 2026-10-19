@@ -37,7 +37,23 @@ export default async function ServicePage({
     <>
       {/* Header */}
       <section className="dot-grid border-b border-[var(--color-border)] bg-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-4xl px-6 pt-16 lg:pt-24 lg:px-8">
+          <RevealScale>
+            <div className="group relative mx-auto aspect-16/8 max-w-4xl overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
+              <Image
+                src={service.image}
+                alt={service.h1}
+                fill
+                sizes="(min-width: 1024px) 900px, 100vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </div>
+          </RevealScale>
+        </div>
+
+        <div className="mx-auto max-w-4xl px-6 py-16 text-center lg:py-20 lg:px-8">
           <Reveal>
             <Eyebrow align="center">Services</Eyebrow>
             <h1 className="mt-3 text-[32px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[40px] lg:text-[46px]">
@@ -56,20 +72,6 @@ export default async function ServicePage({
               </Button>
             </div>
           </Reveal>
-
-          <RevealScale delay={0.1} className="mt-12">
-            <div className="group relative mx-auto aspect-[16/8] max-w-4xl overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
-              <Image
-                src={service.image}
-                alt={service.h1}
-                fill
-                sizes="(min-width: 1024px) 900px, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-            </div>
-          </RevealScale>
         </div>
       </section>
 
