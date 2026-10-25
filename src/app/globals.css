@@ -93,43 +93,17 @@ html[data-intro-seen] #intro-loader {
   }
 }
 
-/* Hero waits for the intro loader, then settles in. */
-.hero-enter {
-  opacity: 0;
-  animation: reveal-failsafe 0s linear 7s forwards;
-}
-
-html[data-intro-seen] .hero-enter,
-html[data-intro-done] .hero-enter {
-  animation: hero-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) var(--hero-delay, 0s)
-    forwards;
-}
-
-.hero-enter-image {
-  --hero-from: scale(1.04);
-}
-
-.hero-enter-cta {
-  --hero-from: translateY(28px);
-  --hero-delay: 0.45s;
-}
-
-@keyframes hero-in {
-  from {
-    opacity: 0;
-    transform: var(--hero-from, none);
-    filter: blur(8px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-    filter: blur(0);
-  }
+/* Hero text starts hidden until the intro finishes; if scripts never run, reveal it anyway.
+   CSS animations override inline styles, so this wins over framer-motion's initial state. */
+.js-failsafe {
+  animation: reveal-failsafe 0s linear 6s forwards;
 }
 
 @keyframes reveal-failsafe {
   to {
     opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
 
