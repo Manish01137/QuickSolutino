@@ -36,8 +36,8 @@ export default async function ServicePage({
   return (
     <>
       {/* Header */}
-      <section className="dot-grid border-b border-[var(--color-border)] bg-white">
-        <div className="mx-auto max-w-4xl px-6 pt-16 lg:pt-24 lg:px-8">
+      <section className="hero-glow dot-grid border-b border-[var(--color-border)] bg-white">
+        <div className="mx-auto max-w-4xl px-5 pt-10 sm:px-6 sm:pt-16 lg:pt-24 lg:px-8">
           <RevealScale>
             <div className="group relative mx-auto aspect-16/8 max-w-4xl overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
               <Image
@@ -53,7 +53,7 @@ export default async function ServicePage({
           </RevealScale>
         </div>
 
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center lg:py-20 lg:px-8">
+        <div className="mx-auto max-w-4xl px-5 py-12 text-center sm:px-6 sm:py-16 lg:py-20 lg:px-8">
           <Reveal>
             <Eyebrow align="center">Services</Eyebrow>
             <h1 className="mt-3 text-[32px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[40px] lg:text-[46px]">
@@ -62,7 +62,7 @@ export default async function ServicePage({
             <p className="mx-auto mt-4 max-w-2xl text-base font-semibold text-[var(--color-primary)]">
               {service.subhead}
             </p>
-            <p className="mx-auto mt-5 max-w-3xl text-[15px] leading-relaxed text-[var(--color-body)] sm:text-base">
+            <p className="mx-auto mt-5 max-w-3xl text-left text-[15px] leading-relaxed text-[var(--color-body)] sm:text-center sm:text-base">
               {service.intro}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -77,7 +77,7 @@ export default async function ServicePage({
 
       {/* Content sections */}
       <section className="bg-white">
-        <div className="mx-auto max-w-5xl space-y-14 px-6 py-16 lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-5xl space-y-12 px-5 py-12 sm:space-y-14 sm:px-6 sm:py-16 lg:py-24 lg:px-8">
           {service.sections.map((section) => (
             <Reveal key={section.heading}>
               <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
@@ -157,7 +157,7 @@ export default async function ServicePage({
 
       {/* CTA */}
       <section className="bg-[var(--color-dark-1)]">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-14 text-center sm:px-6 sm:py-16 lg:px-8">
           <Reveal>
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               {service.ctaHeading}

@@ -36,10 +36,10 @@ const footerColumns = [
 
 export function Footer() {
   return (
-    <footer className="mt-auto bg-[var(--color-dark-1)]">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <RevealGroup className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-          <RevealItem>
+    <footer className="mt-auto border-t border-white/5 bg-[var(--color-dark-1)]">
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
+        <RevealGroup className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12">
+          <RevealItem className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Logo dark />
             <p className="mt-4 max-w-xs text-sm text-slate-400">
               Your Local Service Provider — end-to-end IT infrastructure
@@ -87,7 +87,7 @@ export function Footer() {
           </RevealItem>
 
           {footerColumns.map((col) => (
-            <RevealItem key={col.title}>
+            <RevealItem key={col.title} className={col.title === "Services" ? "col-span-2 sm:col-span-1" : ""}>
               <p className="text-sm font-bold text-white">{col.title}</p>
               <ul className="mt-4 space-y-3">
                 {col.links.map((link) => (

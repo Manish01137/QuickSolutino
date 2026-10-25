@@ -3,8 +3,8 @@
 import { motion, type Variants } from "framer-motion";
 
 const variants: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 28, filter: "blur(8px)" },
+  show: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
 export function Reveal({

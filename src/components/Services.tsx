@@ -7,19 +7,19 @@ import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 export function Services() {
   return (
     <section id="services" className="dot-grid bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
         <SectionHeading
           eyebrow="Our Services"
           title="End-to-End IT Infrastructure Services"
           align="center"
         />
 
-        <RevealGroup className="mt-12 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+        <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-5 lg:grid-cols-6">
           {primaryServices.map((service) => (
             <RevealItem key={service.number}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group flex h-full flex-col rounded-2xl border border-[var(--color-border)] bg-white p-5 shadow-[0_10px_30px_-24px_rgba(15,23,42,0.25)] transition-all duration-300 hover:-translate-y-2 hover:border-[var(--color-primary)]/30 hover:shadow-[0_24px_44px_-18px_rgba(214,32,39,0.3)] sm:p-6"
+                className="card-glow group flex h-full flex-col rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-[0_10px_30px_-24px_rgba(15,23,42,0.25)] transition-all duration-500 hover:-translate-y-2 hover:border-transparent hover:shadow-[0_28px_50px_-20px_rgba(214,32,39,0.35)] sm:p-6"
               >
                 <div className="flex h-20 w-20 items-center justify-center transition-transform duration-500 ease-out group-hover:-rotate-3 group-hover:scale-110 sm:h-28 sm:w-28">
                   <Image
@@ -46,7 +46,7 @@ export function Services() {
             href="/services"
             className="group/btn inline-flex items-center gap-2 rounded-full border-2 border-dashed border-[var(--color-ink)]/25 px-8 py-3.5 text-sm font-bold text-[var(--color-ink)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:shadow-[0_14px_28px_-18px_rgba(214,32,39,0.25)]"
           >
-            View All Service
+            View All Services
           </Link>
         </Reveal>
       </div>

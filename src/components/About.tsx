@@ -7,7 +7,7 @@ import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 export function About() {
   return (
     <section id="about" className="bg-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28 lg:px-8">
         <Reveal className="order-2 lg:order-1">
           <div className="group mx-auto max-w-xs lg:max-w-sm">
             <Image

@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useSpring,
+  type Variants,
+} from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Logo } from "./Logo";
 import { Button } from "./ui/Button";
@@ -52,7 +58,7 @@ function ServicesMobileAccordion({ onNavigate }: { onNavigate: () => void }) {
         type="button"
         onClick={() => setServicesOpen((v) => !v)}
         aria-expanded={servicesOpen}
-        className="flex w-full items-center justify-between text-sm font-medium text-[var(--color-ink)]"
+        className="flex w-full items-center justify-between text-base font-semibold text-[var(--color-ink)]"
       >
         Services
         <ChevronDown
@@ -85,9 +91,21 @@ function ServicesMobileAccordion({ onNavigate }: { onNavigate: () => void }) {
   );
 }
 
+const mobileList: Variants = {
+  closed: {},
+  open: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } },
+};
+
+const mobileItem: Variants = {
+  closed: { opacity: 0, x: -16 },
+  open: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+};
+
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 30, mass: 0.3 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -96,18 +114,36 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const close = () => window.innerWidth >= 1024 && setOpen(false);
+    window.addEventListener("resize", close);
+    return () => window.removeEventListener("resize", close);
+  }, []);
+
   return (
     <motion.header
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-shadow duration-300 ${
+      className={`sticky top-0 z-50 border-b backdrop-blur-xl transition-all duration-500 ${
         scrolled
-          ? "border-[var(--color-border)] shadow-[0_8px_24px_-18px_rgba(15,23,42,0.35)]"
-          : "border-transparent"
+          ? "border-[var(--color-border)] bg-white/90 shadow-[0_10px_30px_-20px_rgba(15,23,42,0.35)]"
+          : "border-transparent bg-white/95"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+      <motion.div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-[2px] origin-left"
+        style={{
+          scaleX: progress,
+          background: "linear-gradient(90deg, var(--color-primary), #f0555c)",
+        }}
+      />
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-500 sm:px-6 lg:px-8 ${
+          scrolled ? "py-2.5 sm:py-3" : "py-3.5 sm:py-4"
+        }`}
+      >
         <Link href="/#home" aria-label="Quick Solutions home">
           <Logo />
         </Link>
@@ -150,32 +186,38 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-[var(--color-border)] bg-white lg:hidden"
+            className="max-h-[calc(100dvh-64px)] overflow-y-auto border-t border-[var(--color-border)] bg-white/95 backdrop-blur-xl lg:hidden"
           >
-            <div className="px-6 py-4">
-              <nav className="flex flex-col gap-4">
-                {navLinks.map((link) =>
-                  link.label === "Services" ? (
-                    <ServicesMobileAccordion
-                      key={link.label}
-                      onNavigate={() => setOpen(false)}
-                    />
-                  ) : (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className="text-sm font-medium text-[var(--color-ink)]"
-                    >
-                      {link.label}
-                    </Link>
-                  ),
-                )}
+            <motion.div
+              className="px-5 py-5 sm:px-6"
+              variants={mobileList}
+              initial="closed"
+              animate="open"
+            >
+              <nav className="flex flex-col divide-y divide-[var(--color-border)]">
+                {navLinks.map((link) => (
+                  <motion.div key={link.label} variants={mobileItem} className="py-3.5">
+                    {link.label === "Services" ? (
+                      <ServicesMobileAccordion onNavigate={() => setOpen(false)} />
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={() => setOpen(false)}
+                        className="flex items-center justify-between text-base font-semibold text-[var(--color-ink)] transition-colors hover:text-[var(--color-primary)]"
+                      >
+                        {link.label}
+                        <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]/30" />
+                      </Link>
+                    )}
+                  </motion.div>
+                ))}
               </nav>
-              <Button href="/#contact" className="mt-5 w-full justify-center">
-                Talk to an Expert
-              </Button>
-            </div>
+              <motion.div variants={mobileItem}>
+                <Button href="/#contact" className="mt-4 w-full justify-center" arrow>
+                  Talk to an Expert
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

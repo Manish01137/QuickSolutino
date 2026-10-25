@@ -11,7 +11,7 @@ export function Logo({ dark = false }: { dark?: boolean }) {
           <div className="text-[15px] font-extrabold tracking-tight text-white">
             QUICK
           </div>
-          <div className="text-[11px] font-semibold tracking-[0.16em] text-[var(--color-primary)]">
+          <div className="mt-1 text-[10px] font-semibold tracking-[0.22em] text-[var(--color-primary)]">
             SOLUTIONS
           </div>
         </div>

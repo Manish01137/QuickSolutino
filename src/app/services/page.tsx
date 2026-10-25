@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { services } from "@/data/services";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { RevealGroup, RevealItem } from "@/components/ui/Reveal";
+import { ServicesHero } from "@/components/services/ServicesHero";
+import { ServiceCard } from "@/components/services/ServiceCard";
+import { Button } from "@/components/ui/Button";
+import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "IT Infrastructure Services | Quick Solutions",
@@ -14,61 +13,54 @@ export const metadata: Metadata = {
 
 export default function ServicesIndexPage() {
   return (
-    <section className="dot-grid bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:py-24 lg:px-8">
-        <SectionHeading
-          eyebrow="Our Services"
-          title="End-to-End IT Infrastructure Services"
-          body="Explore the full range of services Quick Solutions delivers across India and 100+ countries."
-          align="center"
-        />
+    <>
+      <ServicesHero count={services.length} />
 
-        <RevealGroup className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <RevealItem key={service.slug}>
-              <Link
-                href={`/services/${service.slug}`}
-                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_28px_48px_-20px_rgba(15,23,42,0.25)]"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.navTitle}
-                    fill
-                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 90vw"
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent" />
-                  <span className="absolute right-4 top-4 text-xs font-bold text-white/70">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div className="absolute -bottom-8 left-5 flex h-18 w-18 items-center justify-center rounded-2xl bg-white p-1 shadow-lg ring-4 ring-white transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-105">
-                    <Image
-                      src={service.iconImage}
-                      alt=""
-                      width={96}
-                      height={96}
-                      className="h-16 w-16 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-1 flex-col px-5 pb-6 pt-9">
-                  <h3 className="text-base font-bold text-[var(--color-ink)]">
-                    {service.navTitle}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--color-body)]">
-                    {service.subhead}
-                  </p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--color-primary)]">
-                    Learn more
-                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                </div>
-              </Link>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </div>
-    </section>
+      <section className="bg-[var(--color-alt-bg)]">
+        <div className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8 lg:pb-24 lg:pt-14">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+            {services.map((service, i) => (
+              <ServiceCard key={service.slug} service={service} index={i} />
+            ))}
+          </div>
+
+          <Reveal className="relative mt-16 overflow-hidden rounded-[32px] bg-[var(--color-dark-1)] px-6 py-12 text-center sm:px-12 sm:py-16 lg:mt-24">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[var(--color-primary)]/30 blur-3xl"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-32 -right-20 h-80 w-80 rounded-full bg-[#f0555c]/20 blur-3xl"
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 opacity-[0.08]"
+              style={{
+                backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+            <div className="relative">
+              <h2 className="mx-auto max-w-2xl text-[26px] font-extrabold leading-tight text-white sm:text-[34px]">
+                Not sure which service fits your infrastructure?
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-300 sm:text-base">
+                Tell us about your environment and our engineers will recommend
+                the right support model.
+              </p>
+              <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                <Button href="/#contact" arrow className="justify-center">
+                  Talk to an Expert
+                </Button>
+                <Button href="tel:+919586777229" variant="outline-dark" className="justify-center">
+                  Call +91 95867 77229
+                </Button>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+    </>
   );
 }

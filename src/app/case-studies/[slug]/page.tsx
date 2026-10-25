@@ -36,8 +36,8 @@ export default async function CaseStudyPage({
   return (
     <>
       {/* Header */}
-      <section className="dot-grid border-b border-[var(--color-border)] bg-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 text-center lg:py-24 lg:px-8">
+      <section className="hero-glow dot-grid border-b border-[var(--color-border)] bg-white">
+        <div className="mx-auto max-w-4xl px-5 py-12 text-center sm:px-6 sm:py-16 lg:py-24 lg:px-8">
           <Reveal>
             <Eyebrow align="center">Case Study</Eyebrow>
             <h1 className="mt-3 text-[26px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px] lg:text-[38px]">
@@ -83,7 +83,7 @@ export default async function CaseStudyPage({
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-4xl px-6 py-16 lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-4xl px-5 py-12 sm:px-6 sm:py-16 lg:py-24 lg:px-8">
           {/* Problem */}
           <Reveal>
             <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
@@ -180,7 +180,7 @@ export default async function CaseStudyPage({
 
       {/* CTA */}
       <section className="bg-[var(--color-dark-1)]">
-        <div className="mx-auto max-w-3xl px-6 py-16 text-center lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-14 text-center sm:px-6 sm:py-16 lg:px-8">
           <Reveal>
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               Ready for results like these?

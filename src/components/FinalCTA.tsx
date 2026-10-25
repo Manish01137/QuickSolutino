@@ -1,123 +1,92 @@
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "./ui/Button";
+import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal } from "./ui/Reveal";
+import { ContactForms } from "./ContactForms";
+
+const contactDetails = [
+  { icon: Phone, label: "Call us", value: "+91 95867 77229", href: "tel:+919586777229" },
+  { icon: Mail, label: "Email us", value: "sales@quick-solutions.in", href: "mailto:sales@quick-solutions.in" },
+  {
+    icon: MapPin,
+    label: "Visit us",
+    value: "12th Floor, 1215, Ganesh Glory, Jagatpur Road, Ahmedabad, Gujarat 382470",
+  },
+];
 
 export function FinalCTA() {
   return (
-    <section id="contact" className="bg-[var(--color-dark-1)]">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">
-        <Reveal className="max-w-2xl">
-          <h2 className="text-[28px] font-extrabold leading-tight text-white sm:text-[34px] lg:text-[38px]">
-            Keep Your IT Infrastructure Running.
+    <section
+      id="contact"
+      className="relative isolate overflow-hidden border-t border-[var(--color-border)] bg-gradient-to-b from-[#f3f5f9] to-[#e8ecf2]"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-48 -top-48 -z-10 h-[520px] w-[520px] rounded-full bg-[var(--color-primary)]/10 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="dot-grid pointer-events-none absolute inset-0 -z-10 opacity-70 [mask-image:linear-gradient(to_bottom,black,transparent_55%)]"
+      />
+
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:px-8 lg:py-28">
+        <Reveal>
+          <Eyebrow>Get In Touch</Eyebrow>
+          <h2 className="mt-3 text-[30px] font-extrabold leading-[1.1] text-[var(--color-ink)] sm:text-[36px] lg:text-[42px]">
+            Keep Your IT Infrastructure{" "}
+            <span className="text-[var(--color-primary)]">Running.</span>
           </h2>
-          <p className="mt-5 text-[15px] leading-relaxed text-slate-300 sm:text-base">
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-[var(--color-body)] sm:text-base">
             Whether you need 24x7 support, onsite engineers, hardware
             maintenance, project deployment or multi-country IT support,
             Quick Solutions is ready to help. Let&apos;s discuss how we can
             support your IT operations.
           </p>
-          <div className="mt-9 flex flex-wrap items-center gap-4">
-            <Button href="#contact" arrow>
+          <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap sm:items-center">
+            <Button href="tel:+919586777229" arrow className="justify-center">
               Talk to an IT Expert
             </Button>
-            <Button href="#contact" variant="outline-dark" arrow>
+            <Button href="#contact-forms" variant="outline" arrow className="justify-center">
               Request a Service
             </Button>
           </div>
+
+          <ul className="mt-10 space-y-3">
+            {contactDetails.map(({ icon: Icon, label, value, href }) => {
+              const body = (
+                <>
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-[var(--color-primary)] shadow-[0_8px_18px_-12px_rgba(214,32,39,0.6)] ring-1 ring-[var(--color-border)] transition-all duration-300 group-hover:bg-[var(--color-primary)] group-hover:text-white">
+                    <Icon className="h-[18px] w-[18px]" />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-[11px] font-semibold uppercase tracking-[0.12em] text-[var(--color-body)]">
+                      {label}
+                    </span>
+                    <span className="mt-0.5 block text-sm font-semibold leading-snug text-[var(--color-ink)]">
+                      {value}
+                    </span>
+                  </span>
+                </>
+              );
+              return (
+                <li key={label}>
+                  {href ? (
+                    <a href={href} className="group flex items-center gap-4 rounded-2xl p-2 transition-colors hover:bg-white/70">
+                      {body}
+                    </a>
+                  ) : (
+                    <div className="group flex items-center gap-4 rounded-2xl p-2">{body}</div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          <ContactForm
-            title="Customer Inquiry"
-            description="Tell us what IT infrastructure support your business needs."
-            recipient="sales@quick-solutions.in"
-            submitLabel="Send Customer Inquiry"
-          />
-          <ContactForm
-            title="Partner With Us"
-            description="Join our delivery network or explore a partnership with Quick Solutions."
-            recipient="partnermanagement@quick-solutions.in"
-            submitLabel="Send Partner Inquiry"
-          />
-        </div>
+        <Reveal delay={0.1}>
+          <ContactForms />
+        </Reveal>
       </div>
     </section>
-  );
-}
-
-function ContactForm({
-  title,
-  description,
-  recipient,
-  submitLabel,
-}: {
-  title: string;
-  description: string;
-  recipient: string;
-  submitLabel: string;
-}) {
-  return (
-    <form
-      action={`mailto:${recipient}`}
-      method="post"
-      encType="text/plain"
-      className="rounded-2xl border border-white/10 bg-white/10 p-6 backdrop-blur-sm sm:p-8"
-    >
-      <h3 className="text-xl font-bold text-white">{title}</h3>
-      <p className="mt-2 text-sm leading-relaxed text-slate-300">{description}</p>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <label className="text-sm font-semibold text-slate-200">
-          Name
-          <input
-            name="name"
-            required
-            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
-            placeholder="Your name"
-          />
-        </label>
-        <label className="text-sm font-semibold text-slate-200">
-          Company
-          <input
-            name="company"
-            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
-            placeholder="Company name"
-          />
-        </label>
-        <label className="text-sm font-semibold text-slate-200">
-          Email
-          <input
-            type="email"
-            name="email"
-            required
-            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
-            placeholder="you@company.com"
-          />
-        </label>
-        <label className="text-sm font-semibold text-slate-200">
-          Phone
-          <input
-            type="tel"
-            name="phone"
-            className="mt-2 w-full rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
-            placeholder="Your phone number"
-          />
-        </label>
-      </div>
-      <label className="mt-4 block text-sm font-semibold text-slate-200">
-        Message
-        <textarea
-          name="message"
-          required
-          rows={4}
-          className="mt-2 w-full resize-y rounded-lg border border-white/15 bg-white/10 px-3 py-2.5 font-normal text-white outline-none placeholder:text-slate-400 focus:border-white/50"
-          placeholder="How can we help?"
-        />
-      </label>
-      <button
-        type="submit"
-        className="mt-5 inline-flex items-center rounded-lg bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[var(--color-primary-dark)]"
-      >
-        {submitLabel}
-      </button>
-    </form>
   );
 }

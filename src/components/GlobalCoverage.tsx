@@ -1,5 +1,6 @@
 import { regions, globalReachIcons } from "@/data/content";
 import { Icon } from "./ui/Icon";
+import { BackgroundVideo } from "./ui/BackgroundVideo";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 
@@ -7,64 +8,68 @@ export function GlobalCoverage() {
   return (
     <section
       id="global-coverage"
-      className="relative isolate overflow-hidden bg-white"
+      className="relative isolate overflow-hidden bg-[var(--color-dark-1)]"
     >
       <div className="absolute inset-0">
-        <video
-          src="/VIDEO-2026-10-19-19-32-59.mp4"
-          poster="/globalcoveragbanner.png"
-          autoPlay
-          muted
-          loop
-          playsInline
+        <BackgroundVideo
+          sources={[
+            { src: "/videos/global-coverage-1080.mp4", media: "(min-width: 768px)" },
+            { src: "/videos/global-coverage-720.mp4" },
+          ]}
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/25 to-white/10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-dark-1)]/90 via-[var(--color-dark-1)]/55 to-[var(--color-dark-1)]/20" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--color-dark-1)] to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">
-        <Reveal className="max-w-2xl rounded-3xl bg-white/85 p-6 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.35)] backdrop-blur-sm sm:p-8">
+      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
+        <Reveal className="max-w-2xl">
           <Eyebrow>Global Coverage</Eyebrow>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px] lg:text-[38px]">
-            Global Reach. Local Expertise.
+          <h2 className="mt-3 text-[30px] font-extrabold leading-tight text-white sm:text-[36px] lg:text-[44px]">
+            Global Reach.{" "}
+            <span className="bg-gradient-to-r from-[#ff6b70] to-[var(--color-primary)] bg-clip-text text-transparent">
+              Local Expertise.
+            </span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-[var(--color-body)] sm:text-base">
+          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-300 sm:text-base">
             One partner for multi-country IT infrastructure support. We
             deliver consistent and responsive support through a global
             network of engineers and service partners.
           </p>
         </Reveal>
 
-        <RevealGroup className="mt-10 grid grid-cols-3 gap-3 sm:grid-cols-6 sm:gap-4 lg:max-w-3xl">
+        <RevealGroup className="mt-8 grid grid-cols-3 gap-2.5 sm:mt-10 sm:grid-cols-6 sm:gap-4 lg:max-w-3xl">
           {globalReachIcons.map((item) => (
             <RevealItem
               key={item.label}
-              className="group flex flex-col items-center gap-2 rounded-xl border border-[var(--color-border)] bg-white/85 px-2 py-4 text-center shadow-[0_14px_32px_-26px_rgba(15,23,42,0.35)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-[0_14px_28px_-18px_rgba(214,32,39,0.3)]"
+              className="group flex flex-col items-center gap-2 rounded-xl border border-white/10 bg-white/[0.06] px-2 py-4 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]/60 hover:bg-white/10"
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-chip)] text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/15 text-[#ff6b70] ring-1 ring-[var(--color-primary)]/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-[var(--color-primary)] group-hover:text-white">
                 <Icon name={item.icon} className="h-4 w-4" />
               </div>
-              <span className="text-[11px] font-semibold leading-tight text-[var(--color-ink)] sm:text-xs">
+              <span className="text-[11px] font-semibold leading-tight text-white/90 sm:text-xs">
                 {item.label}
               </span>
             </RevealItem>
           ))}
         </RevealGroup>
 
-        <RevealGroup className="mt-14 grid grid-cols-2 gap-4 sm:gap-5 lg:mt-20 lg:grid-cols-4">
+        <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5 lg:mt-20 lg:grid-cols-4">
           {regions.map((region) => (
             <RevealItem
               key={region.name}
-              className="rounded-2xl border border-[var(--color-border)] bg-white/90 p-5 shadow-[0_18px_40px_-28px_rgba(15,23,42,0.35)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:shadow-[0_18px_36px_-20px_rgba(214,32,39,0.28)]"
+              className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] p-4 backdrop-blur-md sm:p-5 transition-all duration-500 hover:-translate-y-1 hover:border-[var(--color-primary)]/50 hover:bg-white/10"
             >
-              <p className="text-sm font-extrabold text-[var(--color-primary)]">
-                {region.name}
-              </p>
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-[var(--color-primary)] to-[#ff6b70] transition-transform duration-500 group-hover:scale-x-100"
+              />
+              <p className="text-sm font-extrabold text-white">{region.name}</p>
               <ul className="mt-3 space-y-1.5">
                 {region.countries.split(", ").map((country) => (
                   <li
                     key={country}
-                    className="flex items-center gap-2 text-xs text-[var(--color-body)] sm:text-sm"
+                    className="flex items-center gap-2 text-xs text-slate-300 sm:text-sm"
                   >
                     <span className="h-1 w-1 shrink-0 rounded-full bg-[var(--color-primary)]" />
                     {country}

@@ -19,8 +19,8 @@ function teaser(problem: string) {
 
 export default function CaseStudiesIndexPage() {
   return (
-    <section className="dot-grid bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:py-24 lg:px-8">
+    <section className="hero-glow dot-grid bg-white">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:py-24 lg:px-8">
         <SectionHeading
           eyebrow="Proven Results"
           title="Case Studies"

@@ -5,17 +5,24 @@ export function Button({
   href,
   children,
   variant = "primary",
+  size = "md",
   arrow = false,
   className = "",
 }: {
   href: string;
   children: React.ReactNode;
   variant?: "primary" | "outline" | "outline-dark";
+  size?: "md" | "lg";
   arrow?: boolean;
   className?: string;
 }) {
   const base =
-    "group/btn inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-95";
+    "btn-shine group/btn inline-flex items-center gap-2 rounded-full font-semibold transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-95";
+
+  const sizes = {
+    md: "px-6 py-3 text-sm",
+    lg: "px-4 py-3 text-[13px] min-[400px]:px-5 min-[400px]:text-sm sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 lg:text-base 2xl:px-10 2xl:py-5 2xl:text-lg",
+  }[size];
 
   const variants = {
     primary:
@@ -27,11 +34,11 @@ export function Button({
   }[variant];
 
   return (
-    <Link href={href} className={`${base} ${variants} ${className}`}>
+    <Link href={href} className={`${base} ${sizes} ${variants} ${className}`}>
       {children}
       {arrow && (
         <ArrowRight
-          className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1"
+          className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1 lg:h-[18px] lg:w-[18px]"
           strokeWidth={2}
         />
       )}
