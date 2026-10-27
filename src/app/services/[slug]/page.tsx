@@ -37,14 +37,14 @@ export default async function ServicePage({
     <>
       {/* Header */}
       <section className="hero-glow dot-grid border-b border-[var(--color-border)] bg-white">
-        <div className="mx-auto max-w-4xl px-5 pt-10 sm:px-6 sm:pt-16 lg:pt-24 lg:px-8">
+        <div className="mx-auto max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] px-5 pt-10 sm:px-6 sm:pt-16 lg:pt-24 lg:px-8">
           <RevealScale>
-            <div className="group relative mx-auto aspect-16/8 max-w-4xl overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
+            <div className="group relative mx-auto aspect-16/8 max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
               <Image
                 src={service.image}
                 alt={service.h1}
                 fill
-                sizes="(min-width: 1024px) 900px, 100vw"
+                sizes="(min-width: 1024px) 85vw, 100vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 priority
               />
@@ -56,13 +56,13 @@ export default async function ServicePage({
         <div className="mx-auto max-w-4xl px-5 py-12 text-center sm:px-6 sm:py-16 lg:py-20 lg:px-8">
           <Reveal>
             <Eyebrow align="center">Services</Eyebrow>
-            <h1 className="mt-3 text-[32px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[40px] lg:text-[46px]">
+            <h1 className="mt-3 text-[2rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2.5rem] lg:text-[2.875rem]">
               {service.h1}
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base font-semibold text-[var(--color-primary)]">
               {service.subhead}
             </p>
-            <p className="mx-auto mt-5 max-w-3xl text-left text-[15px] leading-relaxed text-[var(--color-body)] sm:text-center sm:text-base">
+            <p className="mx-auto mt-5 max-w-[72ch] text-left text-[0.9375rem] leading-relaxed text-[var(--color-body)] sm:text-center sm:text-base">
               {service.intro}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -84,7 +84,7 @@ export default async function ServicePage({
                 {section.heading}
               </h2>
               {section.body && (
-                <p className="mt-3 text-[15px] leading-relaxed text-[var(--color-body)]">
+                <p className="mt-3 max-w-[75ch] text-[0.9375rem] leading-relaxed text-[var(--color-body)]">
                   {section.body}
                 </p>
               )}
@@ -162,7 +162,7 @@ export default async function ServicePage({
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               {service.ctaHeading}
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-slate-300">
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-slate-300">
               {service.ctaBody}
             </p>
             <div className="mt-8 flex justify-center">

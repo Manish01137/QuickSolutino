@@ -10,7 +10,7 @@ export function MultiVendorSupport() {
   return (
     <section id="solutions" className="relative isolate overflow-hidden bg-white">
       <div
-        className="absolute inset-x-0 top-1/2 hidden aspect-2014/780 w-full -translate-y-1/2 lg:block"
+        className="absolute inset-x-0 top-1/2 hidden aspect-2014/780 w-full -translate-y-1/2 lg:block 5xl:left-auto 5xl:max-w-[2560px]"
         style={{
           maskImage: "linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent)",
           WebkitMaskImage: "linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent)",
@@ -27,20 +27,20 @@ export function MultiVendorSupport() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
-        <Reveal className="max-w-xl">
+        <Reveal className="max-w-xl 3xl:max-w-2xl">
           <Eyebrow>Multi-Vendor Support</Eyebrow>
-          <h2 className="mt-3 max-w-lg text-[32px] font-extrabold leading-[1.12] text-[var(--color-ink)] sm:text-[42px]">
+          <h2 className="mt-3 max-w-lg text-[2rem] font-extrabold leading-[1.12] text-[var(--color-ink)] sm:text-[2.625rem]">
             One Partner. Multiple Technology Vendors.
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-[var(--color-body)] sm:text-base">
+          <p className="mt-5 max-w-xl text-[0.9375rem] leading-relaxed text-[var(--color-body)] sm:text-base 3xl:text-lg">
             We provide multi-vendor support for leading global technology
             brands, helping businesses maintain uptime and performance
             across their IT infrastructure.
           </p>
 
-          <VendorLogos className="mt-9 max-w-xl" />
+          <VendorLogos className="mt-9 max-w-xl 3xl:max-w-2xl" />
 
-          <div className="mt-8 flex max-w-xl flex-wrap gap-2 sm:mt-9 sm:grid sm:grid-cols-5 sm:gap-3">
+          <div className="mt-8 flex max-w-xl flex-wrap gap-2 sm:mt-9 sm:grid sm:grid-cols-5 sm:gap-3 3xl:max-w-2xl">
             {vendorIcons.map((item) => (
               <div
                 key={item.label}
@@ -50,7 +50,7 @@ export function MultiVendorSupport() {
                   name={item.icon}
                   className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110 sm:h-5 sm:w-5"
                 />
-                <span className="text-xs font-semibold text-[var(--color-ink)] sm:text-[11px]">
+                <span className="text-xs font-semibold text-[var(--color-ink)] sm:text-[0.6875rem]">
                   {item.label}
                 </span>
               </div>

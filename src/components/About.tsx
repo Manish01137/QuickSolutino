@@ -9,7 +9,7 @@ export function About() {
     <section id="about" className="bg-white">
       <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28 lg:px-8">
         <Reveal className="order-2 lg:order-1">
-          <div className="group mx-auto max-w-xs lg:max-w-sm">
+          <div className="group mx-auto max-w-xs lg:max-w-sm 3xl:max-w-md">
             <Image
               src="/vendors/About us img.png"
               alt="Quick Solutions engineers supporting data center infrastructure"
@@ -32,7 +32,7 @@ export function About() {
               <RevealItem key={item.label}>
                 <div className="group flex items-center gap-3 rounded-xl p-2 transition-all duration-300 hover:bg-[var(--color-alt-bg)]">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-chip)] text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110">
-                    <Icon name={item.icon} className="h-[18px] w-[18px]" />
+                    <Icon name={item.icon} className="h-[1.125rem] w-[1.125rem]" />
                   </div>
                   <span className="text-sm font-medium text-[var(--color-ink)]">
                     {item.label}

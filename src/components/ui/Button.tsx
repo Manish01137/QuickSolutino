@@ -21,7 +21,7 @@ export function Button({
 
   const sizes = {
     md: "px-6 py-3 text-sm",
-    lg: "px-4 py-3 text-[13px] min-[400px]:px-5 min-[400px]:text-sm sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 lg:text-base 2xl:px-10 2xl:py-5 2xl:text-lg",
+    lg: "px-4 py-3 text-[0.8125rem] min-[400px]:px-5 min-[400px]:text-sm sm:px-7 sm:py-3.5 lg:px-9 lg:py-4 lg:text-base 2xl:px-10 2xl:py-5 2xl:text-lg",
   }[size];
 
   const variants = {
@@ -38,7 +38,7 @@ export function Button({
       {children}
       {arrow && (
         <ArrowRight
-          className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1 lg:h-[18px] lg:w-[18px]"
+          className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1 lg:h-[1.125rem] lg:w-[1.125rem]"
           strokeWidth={2}
         />
       )}

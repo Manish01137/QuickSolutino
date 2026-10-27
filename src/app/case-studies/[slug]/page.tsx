@@ -37,28 +37,28 @@ export default async function CaseStudyPage({
     <>
       {/* Header */}
       <section className="hero-glow dot-grid border-b border-[var(--color-border)] bg-white">
-        <div className="mx-auto max-w-4xl px-5 py-12 text-center sm:px-6 sm:py-16 lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] px-5 py-12 text-center sm:px-6 sm:py-16 lg:py-24 lg:px-8">
           <Reveal>
             <Eyebrow align="center">Case Study</Eyebrow>
-            <h1 className="mt-3 text-[26px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px] lg:text-[38px]">
+            <h1 className="mx-auto mt-3 max-w-4xl text-[1.625rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2rem] lg:text-[2.375rem]">
               {study.title}
             </h1>
 
             <div className="mx-auto mt-8 grid max-w-3xl grid-cols-1 gap-4 sm:grid-cols-3">
               <div className="rounded-xl border border-[var(--color-border)] p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_16px_32px_-18px_rgba(214,32,39,0.25)]">
-                <p className="eyebrow !text-[11px]">Industry</p>
+                <p className="eyebrow !text-[0.6875rem]">Industry</p>
                 <p className="mt-1 text-sm font-semibold text-[var(--color-ink)]">
                   {study.industry}
                 </p>
               </div>
               <div className="rounded-xl border border-[var(--color-border)] p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_16px_32px_-18px_rgba(214,32,39,0.25)]">
-                <p className="eyebrow !text-[11px]">Service</p>
+                <p className="eyebrow !text-[0.6875rem]">Service</p>
                 <p className="mt-1 text-sm font-semibold text-[var(--color-ink)]">
                   {study.service}
                 </p>
               </div>
               <div className="rounded-xl border border-[var(--color-border)] p-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)] hover:shadow-[0_16px_32px_-18px_rgba(214,32,39,0.25)]">
-                <p className="eyebrow !text-[11px]">Locations</p>
+                <p className="eyebrow !text-[0.6875rem]">Locations</p>
                 <p className="mt-1 text-sm font-semibold text-[var(--color-ink)]">
                   {study.locations}
                 </p>
@@ -67,12 +67,12 @@ export default async function CaseStudyPage({
           </Reveal>
 
           <RevealScale delay={0.1} className="mt-12">
-            <div className="group relative mx-auto aspect-[16/8] max-w-4xl overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
+            <div className="group relative mx-auto aspect-[16/8] max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
               <Image
                 src={study.image}
                 alt={study.title}
                 fill
-                sizes="(min-width: 1024px) 900px, 100vw"
+                sizes="(min-width: 1024px) 85vw, 100vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 priority
               />
@@ -89,7 +89,7 @@ export default async function CaseStudyPage({
             <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
               The Problem
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-body)] sm:text-base">
+            <p className="mt-4 max-w-[75ch] text-[0.9375rem] leading-relaxed text-[var(--color-body)] sm:text-base">
               {study.problem}
             </p>
             {study.objective && (
@@ -116,7 +116,7 @@ export default async function CaseStudyPage({
             <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
               The Solution
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-body)] sm:text-base">
+            <p className="mt-4 max-w-[75ch] text-[0.9375rem] leading-relaxed text-[var(--color-body)] sm:text-base">
               {study.solutionIntro}
             </p>
 
@@ -185,7 +185,7 @@ export default async function CaseStudyPage({
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               Ready for results like these?
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-slate-300">
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-slate-300">
               Tell us about your IT infrastructure challenge and we&apos;ll help
               you design the right support model.
             </p>

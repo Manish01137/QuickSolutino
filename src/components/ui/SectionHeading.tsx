@@ -17,11 +17,11 @@ export function SectionHeading({
   return (
     <Reveal className={`max-w-2xl ${alignClass}`}>
       <Eyebrow align={align}>{eyebrow}</Eyebrow>
-      <h2 className="mt-3 text-[28px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px] lg:text-[34px]">
+      <h2 className="mt-3 text-[1.75rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2rem] lg:text-[2.125rem]">
         {title}
       </h2>
       {body && (
-        <p className="mt-4 text-[15px] leading-relaxed text-[var(--color-body)] sm:text-base">
+        <p className="mt-4 text-[0.9375rem] leading-relaxed text-[var(--color-body)] sm:text-base">
           {body}
         </p>
       )}

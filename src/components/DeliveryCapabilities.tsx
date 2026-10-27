@@ -9,7 +9,7 @@ export function DeliveryCapabilities() {
       <div className="mx-auto max-w-7xl px-6 py-20 lg:py-28 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow align="center">From Deployment To Ongoing Support</Eyebrow>
-          <h2 className="mt-3 text-[28px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px]">
+          <h2 className="mt-3 text-[1.75rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2rem]">
             Project &amp; Delivery Capabilities
           </h2>
         </Reveal>

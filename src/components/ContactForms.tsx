@@ -40,7 +40,7 @@ function Field({
   required?: boolean;
 }) {
   return (
-    <label className="block text-[13px] font-semibold text-[var(--color-ink)]">
+    <label className="block text-[0.8125rem] font-semibold text-[var(--color-ink)]">
       {label}
       {required && <span className="text-[var(--color-primary)]"> *</span>}
       <input type={type} name={name} required={required} placeholder={placeholder} className={inputClass} />
@@ -67,7 +67,7 @@ export function ContactForms() {
               role="tab"
               aria-selected={selected}
               onClick={() => setActive(i)}
-              className={`relative z-10 flex items-center justify-center gap-2 rounded-2xl px-2 py-3 text-[13px] font-semibold transition-colors duration-300 sm:text-sm ${
+              className={`relative z-10 flex items-center justify-center gap-2 rounded-2xl px-2 py-3 text-[0.8125rem] font-semibold transition-colors duration-300 sm:text-sm ${
                 selected ? "text-[var(--color-primary)]" : "text-[var(--color-body)] hover:text-[var(--color-ink)]"
               }`}
             >
@@ -106,7 +106,7 @@ export function ContactForms() {
             <Field label="Phone" name="phone" type="tel" placeholder="Your phone number" />
           </div>
 
-          <label className="mt-4 block text-[13px] font-semibold text-[var(--color-ink)]">
+          <label className="mt-4 block text-[0.8125rem] font-semibold text-[var(--color-ink)]">
             Message<span className="text-[var(--color-primary)]"> *</span>
             <textarea
               name="message"

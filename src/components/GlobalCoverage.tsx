@@ -25,20 +25,20 @@ export function GlobalCoverage() {
       <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
         <Reveal className="max-w-2xl">
           <Eyebrow>Global Coverage</Eyebrow>
-          <h2 className="mt-3 text-[30px] font-extrabold leading-tight text-white sm:text-[36px] lg:text-[44px]">
+          <h2 className="mt-3 text-[1.875rem] font-extrabold leading-tight text-white sm:text-[2.25rem] lg:text-[2.75rem]">
             Global Reach.{" "}
             <span className="bg-gradient-to-r from-[#ff6b70] to-[var(--color-primary)] bg-clip-text text-transparent">
               Local Expertise.
             </span>
           </h2>
-          <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-slate-300 sm:text-base">
+          <p className="mt-5 max-w-xl text-[0.9375rem] leading-relaxed text-slate-300 sm:text-base">
             One partner for multi-country IT infrastructure support. We
             deliver consistent and responsive support through a global
             network of engineers and service partners.
           </p>
         </Reveal>
 
-        <RevealGroup className="mt-8 grid grid-cols-3 gap-2.5 sm:mt-10 sm:grid-cols-6 sm:gap-4 lg:max-w-3xl">
+        <RevealGroup className="mt-8 grid grid-cols-3 gap-2.5 sm:mt-10 sm:grid-cols-6 sm:gap-4 lg:max-w-3xl 3xl:max-w-4xl">
           {globalReachIcons.map((item) => (
             <RevealItem
               key={item.label}
@@ -47,7 +47,7 @@ export function GlobalCoverage() {
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-primary)]/15 text-[#ff6b70] ring-1 ring-[var(--color-primary)]/30 transition-all duration-300 group-hover:scale-110 group-hover:bg-[var(--color-primary)] group-hover:text-white">
                 <Icon name={item.icon} className="h-4 w-4" />
               </div>
-              <span className="text-[11px] font-semibold leading-tight text-white/90 sm:text-xs">
+              <span className="text-[0.6875rem] font-semibold leading-tight text-white/90 sm:text-xs">
                 {item.label}
               </span>
             </RevealItem>

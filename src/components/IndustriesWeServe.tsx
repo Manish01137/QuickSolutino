@@ -23,12 +23,12 @@ export function IndustriesWeServe() {
         <RevealGroup className="no-scrollbar -mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-6 sm:mx-0 sm:mt-12 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
           {industries.map((industry) => (
             <RevealItem key={industry.name} className="w-[78%] shrink-0 snap-start sm:w-auto">
-              <div className="group relative h-80 overflow-hidden rounded-3xl shadow-[0_20px_40px_-24px_rgba(15,23,42,0.45)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_48px_-20px_rgba(15,23,42,0.4)] sm:h-64 sm:rounded-2xl">
+              <div className="group relative h-80 overflow-hidden rounded-3xl shadow-[0_20px_40px_-24px_rgba(15,23,42,0.45)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_48px_-20px_rgba(15,23,42,0.4)] sm:h-64 sm:rounded-2xl 3xl:h-72">
                 <Image
                   src={industry.image}
                   alt={industry.name}
                   fill
-                  sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 80vw"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 80vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-ink)] via-[var(--color-ink)]/10 to-transparent transition-opacity duration-300 group-hover:from-[var(--color-primary-dark)]/80" />

@@ -7,7 +7,7 @@ export function VendorLogos({ className = "" }: { className?: string }) {
         <li
           key={vendor.name}
           title={vendor.name}
-          className="group flex h-14 items-center justify-center rounded-xl border border-[var(--color-border)] bg-white/90 px-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)]/40 hover:shadow-[0_12px_24px_-14px_rgba(214,32,39,0.4)]"
+          className="group flex h-14 3xl:h-16 items-center justify-center rounded-xl border border-[var(--color-border)] bg-white/90 px-3 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)]/40 hover:shadow-[0_12px_24px_-14px_rgba(214,32,39,0.4)]"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

@@ -81,7 +81,7 @@ export function HeroClient({ map }: { map: WorldMapArt }) {
     >
       <Backdrop state={state} />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-6 px-5 pb-28 pt-10 sm:px-6 sm:pt-14 lg:min-h-[min(calc(100svh_-_76px),860px)] lg:grid-cols-[1.08fr_1fr] lg:gap-4 lg:px-8 lg:pb-36 lg:pt-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 px-5 pb-28 pt-10 sm:px-6 sm:pt-14 lg:min-h-[min(calc(100svh_-_4.75rem),53.75rem)] lg:grid-cols-[1.08fr_1fr] lg:gap-4 lg:px-8 lg:pb-36 lg:pt-8 2xl:min-h-[calc(100svh_-_4.75rem)] 3xl:grid-cols-[1fr_1.05fr] 3xl:gap-8">
         <motion.div initial="hidden" animate={state} className="relative z-10">
           <motion.p
             custom={0}
@@ -94,7 +94,7 @@ export function HeroClient({ map }: { map: WorldMapArt }) {
             </span>
           </motion.p>
 
-          <h1 className="mt-5 text-[34px] font-extrabold uppercase leading-[1.02] tracking-[-0.02em] text-[var(--color-ink)] min-[400px]:text-[38px] sm:text-[54px] lg:text-[48px] xl:text-[58px]">
+          <h1 className="mt-5 text-[clamp(1.75rem,8.6vw,2.125rem)] font-extrabold uppercase leading-[1.02] tracking-[-0.02em] text-[var(--color-ink)] min-[400px]:text-[2.375rem] sm:text-[3.375rem] lg:text-[3rem] xl:text-[3.625rem]">
             {HEADLINE.map((line) => (
               <span key={line.offset} className="block">
                 {line.words.map((word, i) => (
@@ -115,7 +115,7 @@ export function HeroClient({ map }: { map: WorldMapArt }) {
           <motion.p
             custom={0.6}
             variants={fadeUp}
-            className="js-failsafe mt-6 max-w-xl text-[15px] leading-relaxed text-[var(--color-body)] sm:text-lg"
+            className="js-failsafe mt-6 max-w-xl text-[0.9375rem] leading-relaxed text-[var(--color-body)] sm:text-lg"
           >
             End-to-end infrastructure support built for scale — data centers,
             networks and multi-vendor environments, backed by 500+ engineers
@@ -158,11 +158,11 @@ function TrustItem({
   return (
     <li className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:gap-2.5 lg:flex-col lg:items-start lg:gap-2 xl:flex-row xl:items-center xl:gap-2.5">
       <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[var(--color-primary)] shadow-[0_10px_22px_-14px_rgba(214,32,39,0.6)] ring-1 ring-[var(--color-border)]">
-        <Icon className="h-[18px] w-[18px]" />
+        <Icon className="h-[1.125rem] w-[1.125rem]" />
       </span>
       <span className="leading-tight">
-        <span className="block text-[13px] font-bold text-[var(--color-ink)] sm:text-sm">{title}</span>
-        <span className="block text-[11px] text-[var(--color-body)] sm:text-xs">{caption}</span>
+        <span className="block text-[0.8125rem] font-bold text-[var(--color-ink)] sm:text-sm">{title}</span>
+        <span className="block text-[0.6875rem] text-[var(--color-body)] sm:text-xs">{caption}</span>
       </span>
     </li>
   );
@@ -205,7 +205,7 @@ function Visual({
     <motion.div
       initial="hidden"
       animate={state}
-      className="relative mx-auto mb-12 mt-4 aspect-square w-full max-w-[420px] sm:mb-0 sm:max-w-[520px] lg:mt-0 lg:max-w-[600px]"
+      className="relative mx-auto mb-12 mt-4 aspect-square w-full max-w-[26.25rem] sm:mb-0 sm:max-w-[32.5rem] lg:mt-0 lg:max-w-[37.5rem] 3xl:max-w-[44rem]"
     >
       <Parallax depth={12} sx={sx} sy={sy} className="pointer-events-none absolute left-1/2 top-[46%] w-[170%] -translate-x-1/2 -translate-y-1/2">
         <WorldMap map={map} />
@@ -243,7 +243,7 @@ function Visual({
               height={636}
               priority
               quality={95}
-              sizes="(min-width: 1024px) 440px, 72vw"
+              sizes="(min-width: 1024px) 32vw, 72vw"
               className="h-auto w-full drop-shadow-[0_30px_40px_rgba(15,23,42,0.22)]"
             />
           </motion.div>
@@ -438,9 +438,9 @@ const BARS = [42, 68, 54, 82, 60, 92, 70, 58];
 
 function MonitoringCard() {
   return (
-    <div className={`${glass} w-[138px] p-2.5 sm:w-[196px] sm:p-4`}>
+    <div className={`${glass} w-[8.625rem] p-2.5 sm:w-[12.25rem] sm:p-4`}>
       <div className="flex items-center justify-between">
-        <span className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--color-body)] sm:text-[10px]">
+        <span className="text-[0.5625rem] font-semibold uppercase tracking-[0.14em] text-[var(--color-body)] sm:text-[0.625rem]">
           Live Monitoring
         </span>
         <span className="relative flex h-2 w-2">
@@ -460,7 +460,7 @@ function MonitoringCard() {
           />
         ))}
       </div>
-      <p className="mt-2 flex items-center gap-1 text-[9px] font-semibold text-emerald-600 sm:text-[10px]">
+      <p className="mt-2 flex items-center gap-1 text-[0.5625rem] font-semibold text-emerald-600 sm:text-[0.625rem]">
         <CheckCircle2 className="h-3 w-3" /> All systems online
       </p>
     </div>
@@ -474,7 +474,7 @@ function EngineersCard() {
     { icon: Server, bg: "bg-[#f0555c]" },
   ];
   return (
-    <div className={`${glass} w-[176px] p-4`}>
+    <div className={`${glass} w-[11rem] p-4`}>
       <div className="flex -space-x-2">
         {avatars.map(({ icon: Icon, bg }, i) => (
           <span key={i} className={`flex h-8 w-8 items-center justify-center rounded-full text-white ring-2 ring-white ${bg}`}>
@@ -483,20 +483,20 @@ function EngineersCard() {
         ))}
       </div>
       <CountUp value="500+" className="mt-3 block text-2xl font-extrabold text-[var(--color-ink)]" />
-      <p className="text-[11px] leading-snug text-[var(--color-body)]">Skilled field engineers</p>
+      <p className="text-[0.6875rem] leading-snug text-[var(--color-body)]">Skilled field engineers</p>
     </div>
   );
 }
 
 function DispatchCard() {
   return (
-    <div className={`${glass} flex w-[248px] items-center gap-3 p-3 sm:w-[236px]`}>
+    <div className={`${glass} flex w-[15.5rem] items-center gap-3 p-3 sm:w-[14.75rem]`}>
       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100">
         <CheckCircle2 className="h-5 w-5" />
       </span>
       <span className="min-w-0 leading-tight">
-        <span className="block text-[13px] font-bold text-[var(--color-ink)]">Engineer dispatched</span>
-        <span className="block text-[11px] text-[var(--color-body)]">Same / Next Business Day SLA</span>
+        <span className="block text-[0.8125rem] font-bold text-[var(--color-ink)]">Engineer dispatched</span>
+        <span className="block text-[0.6875rem] text-[var(--color-body)]">Same / Next Business Day SLA</span>
       </span>
     </div>
   );
@@ -506,9 +506,9 @@ function Backdrop({ state }: { state: "show" | "hidden" }) {
   return (
     <motion.div aria-hidden initial="hidden" animate={state} className="pointer-events-none absolute inset-0 -z-10">
       <div className="dot-grid absolute inset-0 opacity-60 [mask-image:radial-gradient(ellipse_at_25%_25%,#000,transparent_65%)]" />
-      <div className="absolute -right-48 top-0 h-[640px] w-[640px] rounded-full bg-[var(--color-primary)]/[0.07] blur-3xl" />
+      <div className="absolute -right-48 top-0 h-[40rem] w-[40rem] rounded-full bg-[var(--color-primary)]/[0.07] blur-3xl" />
 
-      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-[110px] w-full sm:h-[150px]">
+      <svg viewBox="0 0 1440 200" preserveAspectRatio="none" className="absolute inset-x-0 bottom-0 h-[6.875rem] w-full sm:h-[9.375rem]">
         <defs>
           <linearGradient id="hero-wave-soft" x1="0" x2="1" y1="0" y2="0">
             <stop offset="0" stopColor={RED} stopOpacity="0.35" />

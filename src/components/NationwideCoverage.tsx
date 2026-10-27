@@ -12,7 +12,7 @@ export function NationwideCoverage() {
           {/* Left: Nationwide Coverage */}
           <Reveal>
             <Eyebrow>Strong Presence. Nationwide Coverage.</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px]">
+            <h2 className="mt-3 text-[1.75rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2rem]">
               One Partner. All of India.
             </h2>
 
@@ -46,7 +46,7 @@ export function NationwideCoverage() {
           {/* Right: Why Quick Solutions */}
           <Reveal delay={0.1}>
             <Eyebrow>Why Quick Solutions</Eyebrow>
-            <h2 className="mt-3 text-[28px] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[32px]">
+            <h2 className="mt-3 text-[1.75rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2rem]">
               One Partner. Complete Support. Always.
             </h2>
 

@@ -49,7 +49,7 @@ export function ServicesHero({ count }: { count: number }) {
           <span aria-hidden className="h-[2px] w-7 rounded-full bg-gradient-to-l from-transparent to-[var(--color-primary)]" />
         </motion.p>
 
-        <h1 className="mt-4 text-[34px] font-extrabold leading-[1.08] tracking-tight text-[var(--color-ink)] sm:text-[48px] lg:text-[60px]">
+        <h1 className="mt-4 text-[2.125rem] font-extrabold leading-[1.08] tracking-tight text-[var(--color-ink)] sm:text-[3rem] lg:text-[3.75rem]">
           {WORDS.map((word, i) => (
             <span key={word.text} className="relative inline-block overflow-hidden pb-[0.12em] align-bottom">
               <motion.span
@@ -85,7 +85,7 @@ export function ServicesHero({ count }: { count: number }) {
         </h1>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-balance text-[15px] leading-relaxed text-[var(--color-body)] sm:text-lg"
+          className="mx-auto mt-6 max-w-2xl text-balance text-[0.9375rem] leading-relaxed text-[var(--color-body)] sm:text-lg"
           initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.8, delay: 0.85, ease: EASE }}

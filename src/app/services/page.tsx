@@ -18,7 +18,7 @@ export default function ServicesIndexPage() {
 
       <section className="bg-[var(--color-alt-bg)]">
         <div className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8 lg:pb-24 lg:pt-14">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 3xl:grid-cols-4 4xl:grid-cols-5">
             {services.map((service, i) => (
               <ServiceCard key={service.slug} service={service} index={i} />
             ))}
@@ -42,10 +42,10 @@ export default function ServicesIndexPage() {
               }}
             />
             <div className="relative">
-              <h2 className="mx-auto max-w-2xl text-[26px] font-extrabold leading-tight text-white sm:text-[34px]">
+              <h2 className="mx-auto max-w-2xl text-[1.625rem] font-extrabold leading-tight text-white sm:text-[2.125rem]">
                 Not sure which service fits your infrastructure?
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-[15px] leading-relaxed text-slate-300 sm:text-base">
+              <p className="mx-auto mt-4 max-w-xl text-[0.9375rem] leading-relaxed text-slate-300 sm:text-base">
                 Tell us about your environment and our engineers will recommend
                 the right support model.
               </p>

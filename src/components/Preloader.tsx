@@ -189,7 +189,7 @@ export function Preloader() {
       ))}
 
       <motion.div
-        className="absolute inset-x-0 top-0 flex items-start justify-between px-8 pt-8 font-mono text-[10px] uppercase tracking-[0.25em] text-slate-400 sm:px-14 sm:pt-12"
+        className="absolute inset-x-0 top-0 flex items-start justify-between px-8 pt-8 font-mono text-[0.625rem] uppercase tracking-[0.25em] text-slate-400 sm:px-14 sm:pt-12"
         initial={{ opacity: 0 }}
         animate={fadeOut}
         transition={{ duration: exiting ? 0.3 : 0.8, delay: exiting ? 0 : 0.3 }}
@@ -206,7 +206,7 @@ export function Preloader() {
           <button
             type="button"
             onClick={() => exitRef.current()}
-            className="rounded-full border border-white/15 px-3.5 py-1.5 text-[10px] tracking-[0.2em] text-white/70 transition-colors hover:border-white/50 hover:text-white"
+            className="rounded-full border border-white/15 px-3.5 py-1.5 text-[0.625rem] tracking-[0.2em] text-white/70 transition-colors hover:border-white/50 hover:text-white"
           >
             Skip intro
           </button>
@@ -214,7 +214,7 @@ export function Preloader() {
       </motion.div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
-        <div ref={emblemRef} className="relative aspect-square" style={{ width: "clamp(150px, 34vmin, 300px)" }}>
+        <div ref={emblemRef} className="relative aspect-square" style={{ width: "clamp(150px, 34vmin, 18.75rem)" }}>
           <motion.div
             className="absolute inset-0"
             style={{ transformOrigin: `${RING_FX * 100}% ${RING_FY * 100}%` }}
@@ -232,7 +232,7 @@ export function Preloader() {
         >
           <DecodeText text="QUICK" startMs={reduceMotion ? 0 : 1450} className="text-4xl font-extrabold tracking-tight sm:text-5xl" />
           <motion.p
-            className="mt-2 text-[11px] font-semibold text-[#ff5a5f] sm:text-sm"
+            className="mt-2 text-[0.6875rem] font-semibold text-[#ff5a5f] sm:text-sm"
             initial={{ opacity: 0, letterSpacing: "1.2em" }}
             animate={brand ? { opacity: 1, letterSpacing: "0.5em" } : { opacity: 0, letterSpacing: "1.2em" }}
             transition={{ duration: 1.1, ease: EASE }}
@@ -249,7 +249,7 @@ export function Preloader() {
         transition={{ duration: exiting ? 0.3 : 0.8, delay: exiting ? 0 : 0.4 }}
       >
         <div className="flex items-end justify-between gap-6">
-          <ul className="w-full max-w-[62%] space-y-1.5 font-mono text-[9px] uppercase tracking-[0.12em] sm:max-w-sm sm:text-[11px]">
+          <ul className="w-full max-w-[62%] space-y-1.5 font-mono text-[0.5625rem] uppercase tracking-[0.12em] sm:max-w-sm sm:text-[0.6875rem]">
             {LOG.map((line) => {
               const shown = reduceMotion || elapsed >= line.at;
               const ok = reduceMotion || elapsed >= line.done;
@@ -271,7 +271,7 @@ export function Preloader() {
             })}
           </ul>
           <div className="shrink-0 text-right">
-            <p className="font-mono text-[9px] uppercase tracking-[0.3em] text-slate-500 sm:text-[10px]">Loading</p>
+            <p className="font-mono text-[0.5625rem] uppercase tracking-[0.3em] text-slate-500 sm:text-[0.625rem]">Loading</p>
             <p className="font-mono text-4xl font-bold leading-none tabular-nums sm:text-6xl">
               <motion.span>{counter}</motion.span>
               <span className="text-lg text-slate-500 sm:text-2xl">%</span>

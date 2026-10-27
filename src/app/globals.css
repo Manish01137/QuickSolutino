@@ -34,9 +34,58 @@
   --font-sans: var(--font-jakarta);
 }
 
+/* Large-display breakpoints (2xl = 1536px is Tailwind's default). */
+@theme {
+  --breakpoint-3xl: 120rem; /* 1920px */
+  --breakpoint-4xl: 160rem; /* 2560px */
+  --breakpoint-5xl: 215rem; /* 3440px */
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 5.5rem;
+}
+
+/*
+ * Large-screen scaling system.
+ * Below 1536px nothing changes (16px root, 1280px container).
+ * From 1536px the root font-size grows fluidly (16px → 24px, capped from ~3077px wide),
+ * so every rem-based size (type, spacing, icons, cards, radii) scales together, and the
+ * shared container (--container-7xl, used by navbar, sections and footer) steps wider:
+ *   1536 → ~1360px · 1920 → ~1680px · 2560 → ~2100px · 3440 → ~2400px · 3840 → ~2800px
+ */
+@media (min-width: 96rem) {
+  html {
+    font-size: clamp(1rem, 0.52vw + 0.5rem, 1.5rem);
+  }
+  :root {
+    --container-7xl: 85rem;
+  }
+}
+
+@media (min-width: 120rem) {
+  :root {
+    --container-7xl: 93.5rem;
+  }
+}
+
+@media (min-width: 160rem) {
+  :root {
+    --container-7xl: 98.5rem;
+  }
+}
+
+@media (min-width: 215rem) {
+  :root {
+    --container-7xl: 100rem;
+  }
+}
+
+/* True 4K at 100% OS scaling: one more step (28px root → ~2800px container). */
+@media (min-width: 240rem) {
+  html {
+    font-size: 1.75rem;
+  }
 }
 
 body {
@@ -46,8 +95,8 @@ body {
 }
 
 .dot-grid {
-  background-image: radial-gradient(var(--color-dot) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(var(--color-dot) 0.094rem, transparent 0.094rem);
+  background-size: 1.5rem 1.5rem;
 }
 
 .eyebrow {
@@ -136,9 +185,9 @@ html[data-intro-seen] #intro-loader {
   position: absolute;
   z-index: -1;
   left: 50%;
-  top: -60px;
-  width: min(960px, 110vw);
-  height: 620px;
+  top: -3.75rem;
+  width: min(60rem, 110vw);
+  height: 38.75rem;
   transform: translateX(-50%);
   background: radial-gradient(closest-side, rgba(214, 32, 39, 0.13), transparent);
   pointer-events: none;

@@ -8,10 +8,10 @@ export function Logo({ dark = false }: { dark?: boolean }) {
           Q
         </div>
         <div className="leading-none">
-          <div className="text-[15px] font-extrabold tracking-tight text-white">
+          <div className="text-[0.9375rem] font-extrabold tracking-tight text-white">
             QUICK
           </div>
-          <div className="mt-1 text-[10px] font-semibold tracking-[0.22em] text-[var(--color-primary)]">
+          <div className="mt-1 text-[0.625rem] font-semibold tracking-[0.22em] text-[var(--color-primary)]">
             SOLUTIONS
           </div>
         </div>

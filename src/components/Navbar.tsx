@@ -27,7 +27,7 @@ function ServicesDesktopDropdown() {
         <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
       </Link>
 
-      <div className="invisible absolute left-1/2 top-full z-50 w-[560px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 ease-out translate-y-1 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+      <div className="invisible absolute left-1/2 top-full z-50 w-[35rem] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 ease-out translate-y-1 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
         <div className="grid grid-cols-2 gap-1 rounded-2xl border border-[var(--color-border)] bg-white p-3 shadow-[0_24px_48px_-16px_rgba(15,23,42,0.2)]">
           {services.map((service) => (
             <Link
