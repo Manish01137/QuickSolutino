@@ -1,14 +1,10 @@
-// Canvas engine for the intro: a drifting node network that particles leave
-// to assemble into the Q emblem, then burst outward on exit.
-// Emblem geometry lives in a 160x160 unit box shared with the SVG overlay.
+// Canvas engine for the intro: a drifting node network whose particles leave
+// to assemble into the real Quick Solutions logo, then burst outward on exit.
+// Logo geometry is in the logo's own 200x78 unit box (see logoPoints.ts).
 
-export const EMBLEM_RING = { cx: 86, cy: 76, r: 32, width: 10 };
-export const TAIL = { x1: 106, y1: 98, x2: 124, y2: 118 };
-export const SPEED_LINES = [
-  { x1: 18, x2: 42, y: 62 },
-  { x1: 24, x2: 42, y: 76 },
-  { x1: 30, x2: 42, y: 90 },
-];
+import { LOGO_RING, RED_POINTS, WHITE_POINTS } from "./logoPoints";
+
+export { LOGO_RING };
 
 export const TIMING = {
   formStart: 700,
@@ -41,25 +37,11 @@ const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(mi
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
 
 function sampleTarget() {
-  const pick = Math.random();
-  if (pick < 0.68) {
-    const a = Math.random() * TAU;
-    const rr = EMBLEM_RING.r + (Math.random() - 0.5) * EMBLEM_RING.width;
-    return { x: EMBLEM_RING.cx + rr * Math.cos(a), y: EMBLEM_RING.cy + rr * Math.sin(a) };
-  }
-  if (pick < 0.78) {
-    const t = Math.random();
-    const dx = TAIL.x2 - TAIL.x1;
-    const dy = TAIL.y2 - TAIL.y1;
-    const len = Math.hypot(dx, dy);
-    const off = (Math.random() - 0.5) * EMBLEM_RING.width;
-    return { x: TAIL.x1 + dx * t + (-dy / len) * off, y: TAIL.y1 + dy * t + (dx / len) * off };
-  }
-  const line = SPEED_LINES[Math.floor(Math.random() * SPEED_LINES.length)];
-  return {
-    x: line.x1 + Math.random() * (line.x2 - line.x1),
-    y: line.y + (Math.random() - 0.5) * 4,
-  };
+  // ~2:1 red to white, matching the logo's ink; a little jitter keeps it organic.
+  const white = Math.random() < 0.33;
+  const pts = white ? WHITE_POINTS : RED_POINTS;
+  const [x, y] = pts[Math.floor(Math.random() * pts.length)];
+  return { x: x + (Math.random() - 0.5) * 0.5, y: y + (Math.random() - 0.5) * 0.5, white };
 }
 
 export function createIntroCanvas(canvas: HTMLCanvasElement, getEmblem: () => Emblem) {
@@ -102,8 +84,8 @@ export function createIntroCanvas(canvas: HTMLCanvasElement, getEmblem: () => Em
       ty: target.y,
       delay: Math.random() * 420,
       swirl: (Math.random() - 0.5) * 180,
-      size: 0.6 + Math.random() * 1.4,
-      white: Math.random() < 0.18,
+      size: 0.5 + Math.random() * 1.1,
+      white: target.white,
       phase: Math.random() * TAU,
       burst: 0.6 + Math.random() * 0.9,
       appear: Math.random() * 650,
@@ -138,8 +120,8 @@ export function createIntroCanvas(canvas: HTMLCanvasElement, getEmblem: () => Em
   function frame(now: number) {
     const t = now - start;
     const em = getEmblem();
-    const ringX = em.x + EMBLEM_RING.cx * em.scale;
-    const ringY = em.y + EMBLEM_RING.cy * em.scale;
+    const ringX = em.x + LOGO_RING.cx * em.scale;
+    const ringY = em.y + LOGO_RING.cy * em.scale;
     const ex = exitAt === null ? 0 : clamp((now - exitAt) / 950, 0, 1);
 
     ctx!.clearRect(0, 0, w, h);

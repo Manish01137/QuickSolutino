@@ -29,7 +29,7 @@ export function FinalCTA() {
         className="dot-grid pointer-events-none absolute inset-0 -z-10 opacity-70 [mask-image:linear-gradient(to_bottom,black,transparent_55%)]"
       />
 
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14 lg:px-8 lg:py-28">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-12 sm:px-6 sm:py-14 lg:grid-cols-2 lg:gap-14 lg:px-8 lg:py-20">
         <Reveal>
           <Eyebrow>Get In Touch</Eyebrow>
           <h2 className="mt-3 text-[1.875rem] font-extrabold leading-[1.1] text-[var(--color-ink)] sm:text-[2.25rem] lg:text-[2.625rem]">

@@ -6,7 +6,7 @@ import { RevealGroup, RevealItem } from "./ui/Reveal";
 export function StatsStrip() {
   return (
     <section className="relative border-y border-[var(--color-border)] bg-[var(--color-alt-bg)]">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-12 lg:px-8">
         <RevealGroup className="grid grid-cols-2 gap-x-4 gap-y-10 sm:grid-cols-3 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-[var(--color-border)]">
           {stats.map((stat, i) => (
             <RevealItem

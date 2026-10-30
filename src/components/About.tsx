@@ -7,15 +7,15 @@ import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 export function About() {
   return (
     <section id="about" className="bg-white">
-      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:gap-16 lg:py-28 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-6 sm:py-14 lg:grid-cols-2 lg:gap-14 lg:py-20 lg:px-8">
         <Reveal className="order-2 lg:order-1">
-          <div className="group mx-auto max-w-xs lg:max-w-sm 3xl:max-w-md">
+          <div className="group mx-auto w-full max-w-md lg:max-w-none">
             <Image
               src="/vendors/About us img.png"
               alt="Quick Solutions engineers supporting data center infrastructure"
               width={1254}
               height={1254}
-              className="w-full rounded-3xl object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-1"
+              className="aspect-[4/3] w-full rounded-3xl object-cover transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-rotate-1"
             />
           </div>
         </Reveal>

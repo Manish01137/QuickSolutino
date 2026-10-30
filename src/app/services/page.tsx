@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { services } from "@/data/services";
+import { getImageAspect } from "@/lib/imageSize";
 import { ServicesHero } from "@/components/services/ServicesHero";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { Button } from "@/components/ui/Button";
@@ -17,14 +18,19 @@ export default function ServicesIndexPage() {
       <ServicesHero count={services.length} />
 
       <section className="bg-[var(--color-alt-bg)]">
-        <div className="mx-auto max-w-7xl px-5 pb-14 pt-10 sm:px-6 sm:pb-20 sm:pt-12 lg:px-8 lg:pb-24 lg:pt-14">
+        <div className="mx-auto max-w-7xl px-5 pb-12 pt-8 sm:px-6 sm:pb-14 sm:pt-10 lg:px-8 lg:pb-16 lg:pt-12">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 3xl:grid-cols-4 4xl:grid-cols-5">
             {services.map((service, i) => (
-              <ServiceCard key={service.slug} service={service} index={i} />
+              <ServiceCard
+                key={service.slug}
+                service={service}
+                index={i}
+                imageAspect={getImageAspect(service.image)}
+              />
             ))}
           </div>
 
-          <Reveal className="relative mt-16 overflow-hidden rounded-[32px] bg-[var(--color-dark-1)] px-6 py-12 text-center sm:px-12 sm:py-16 lg:mt-24">
+          <Reveal className="relative mt-12 overflow-hidden rounded-[32px] bg-[var(--color-dark-1)] px-6 py-12 text-center sm:px-12 sm:py-16 lg:mt-16">
             <div
               aria-hidden
               className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-[var(--color-primary)]/30 blur-3xl"

@@ -81,7 +81,7 @@ export function HeroClient({ map }: { map: WorldMapArt }) {
     >
       <Backdrop state={state} />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-6 px-5 pb-28 pt-10 sm:px-6 sm:pt-14 lg:min-h-[min(calc(100svh_-_4.75rem),53.75rem)] lg:grid-cols-[1.08fr_1fr] lg:gap-4 lg:px-8 lg:pb-36 lg:pt-8 2xl:min-h-[calc(100svh_-_4.75rem)] 3xl:grid-cols-[1fr_1.05fr] 3xl:gap-8">
+      <div className="mx-auto grid max-w-7xl items-center gap-6 px-5 pb-28 pt-10 sm:px-6 sm:pt-14 lg:min-h-[min(calc(100svh_-_4.75rem),53.75rem)] lg:grid-cols-2 lg:gap-8 lg:px-8 lg:pb-36 lg:pt-8 2xl:min-h-[calc(100svh_-_4.75rem)] 3xl:gap-12">
         <motion.div initial="hidden" animate={state} className="relative z-10">
           <motion.p
             custom={0}

@@ -156,6 +156,30 @@ html[data-intro-seen] #intro-loader {
   }
 }
 
+/* Vendor orbit graphic: bubbles bob gently and lift on hover. */
+.vo-float {
+  transform-box: fill-box;
+  animation: vo-float 6s ease-in-out infinite;
+}
+
+@keyframes vo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+.vo-bubble {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.vo-bubble:hover {
+  transform: scale(1.08);
+}
+
 .no-scrollbar {
   scrollbar-width: none;
 }

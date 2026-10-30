@@ -37,7 +37,7 @@ export function ServicesHero({ count }: { count: number }) {
         SERVICES
       </motion.span>
 
-      <div className="relative mx-auto max-w-5xl px-5 pb-12 pt-14 text-center sm:px-6 sm:pb-14 sm:pt-20 lg:pb-16 lg:pt-24">
+      <div className="relative mx-auto max-w-5xl px-5 pb-10 pt-10 text-center sm:px-6 sm:pb-12 sm:pt-14 lg:pb-12 lg:pt-16">
         <motion.p
           className="eyebrow flex items-center justify-center gap-2.5"
           initial={{ opacity: 0, y: 12 }}
@@ -117,7 +117,7 @@ export function ServicesHero({ count }: { count: number }) {
 
         <motion.div
           aria-hidden
-          className="mx-auto mt-10 hidden h-10 w-6 justify-center rounded-full border-2 border-[var(--color-ink)]/20 pt-2 sm:flex"
+          className="mx-auto mt-8 hidden h-10 w-6 justify-center rounded-full border-2 border-[var(--color-ink)]/20 pt-2 sm:flex"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 0.6 }}

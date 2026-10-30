@@ -14,8 +14,22 @@ import type { Service } from "@/data/services";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const WIPE = [0.76, 0, 0.24, 1] as const;
+// Card image frame matches the wide service banners (1983x793).
+const FRAME_ASPECT = 1983 / 793;
+const SIZES =
+  "(min-width: 2560px) 20vw, (min-width: 1920px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw";
 
-export function ServiceCard({ service, index }: { service: Service; index: number }) {
+export function ServiceCard({
+  service,
+  index,
+  imageAspect,
+}: {
+  service: Service;
+  index: number;
+  imageAspect: number;
+}) {
+  // Images narrower than the frame are shown whole on a blurred copy of themselves, never cropped.
+  const letterbox = Math.abs(imageAspect - FRAME_ASPECT) / FRAME_ASPECT > 0.04;
   const delay = (index % 3) * 0.12;
   const number = String(index + 1).padStart(2, "0");
 
@@ -74,7 +88,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
             style={{ background: spotlight }}
           />
 
-          <div className="relative aspect-[16/9] overflow-hidden">
+          <div className="relative overflow-hidden" style={{ aspectRatio: FRAME_ASPECT }}>
             <motion.div
               className="absolute inset-0"
               variants={{
@@ -82,12 +96,22 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
                 show: { scale: 1, transition: { duration: 1.4, delay: delay + 0.2, ease: EASE } },
               }}
             >
+              {letterbox && (
+                <Image
+                  src={service.image}
+                  alt=""
+                  aria-hidden
+                  fill
+                  sizes={SIZES}
+                  className="scale-125 object-cover opacity-70 blur-2xl"
+                />
+              )}
               <Image
                 src={service.image}
                 alt={service.navTitle}
                 fill
-                sizes="(min-width: 2560px) 20vw, (min-width: 1920px) 25vw, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                sizes={SIZES}
+                className={`${letterbox ? "object-contain" : "object-cover"} transition-transform duration-700 ease-out group-hover:scale-[1.06]`}
               />
             </motion.div>
 

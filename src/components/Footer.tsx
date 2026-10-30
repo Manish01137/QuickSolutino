@@ -36,38 +36,38 @@ const footerColumns = [
 
 export function Footer() {
   return (
-    <footer className="mt-auto border-t border-white/5 bg-[var(--color-dark-1)]">
-      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-16 lg:px-8">
+    <footer className="mt-auto border-t border-white/5 bg-[#2a2d32]">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:px-8">
         <RevealGroup className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-12">
           <RevealItem className="col-span-2 sm:col-span-3 lg:col-span-1">
             <Logo dark />
-            <p className="mt-4 max-w-xs text-sm text-slate-400">
+            <p className="mt-4 max-w-xs text-sm text-neutral-400">
               Your Local Service Provider — end-to-end IT infrastructure
               support across India and 100+ countries.
             </p>
             <div className="mt-6 space-y-3">
               <a
                 href="mailto:sales@quick-solutions.in"
-                className="group flex items-center gap-2.5 text-sm text-slate-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
+                className="group flex items-center gap-2.5 text-sm text-neutral-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
               >
                 <Mail className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" />
                 sales@quick-solutions.in
               </a>
               <a
                 href="tel:+919586777229"
-                className="group flex items-center gap-2.5 text-sm text-slate-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
+                className="group flex items-center gap-2.5 text-sm text-neutral-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
               >
                 <Phone className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" />
                 +91 95867 77229
               </a>
               <a
                 href="https://www.quick-solutions.in"
-                className="group flex items-center gap-2.5 text-sm text-slate-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
+                className="group flex items-center gap-2.5 text-sm text-neutral-300 transition-all duration-200 hover:translate-x-1 hover:text-white"
               >
                 <Globe className="h-4 w-4 text-[var(--color-primary)] transition-transform duration-300 group-hover:scale-110" />
                 www.quick-solutions.in
               </a>
-              <div className="flex items-start gap-2.5 text-sm text-slate-300">
+              <div className="flex items-start gap-2.5 text-sm text-neutral-300">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--color-primary)]" />
                 <span>
                   12th Floor, 1215, Ganesh Glory, Jagatpur Road, Sarkhej -
@@ -79,7 +79,7 @@ export function Footer() {
               <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary)]" />
               <div>
                 <p className="text-sm font-bold text-white">ISO 9001:2015</p>
-                <p className="mt-1 text-xs text-slate-400">
+                <p className="mt-1 text-xs text-neutral-400">
                   Certificate number: 305026071787Q
                 </p>
               </div>
@@ -94,7 +94,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="inline-block text-sm text-slate-400 transition-all duration-200 hover:translate-x-1 hover:text-white"
+                      className="inline-block text-sm text-neutral-400 transition-all duration-200 hover:translate-x-1 hover:text-white"
                     >
                       {link.label}
                     </Link>
@@ -105,8 +105,8 @@ export function Footer() {
           ))}
         </RevealGroup>
 
-        <Reveal className="mt-14 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
-          <p className="text-xs text-slate-500">
+        <Reveal className="mt-10 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 sm:flex-row">
+          <p className="text-xs text-neutral-400">
             © {new Date().getFullYear()} Quick Solutions. All rights reserved.
           </p>
           <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
@@ -114,7 +114,7 @@ export function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-xs text-slate-400 transition-colors duration-200 hover:text-white"
+                className="text-xs text-neutral-400 transition-colors duration-200 hover:text-white"
               >
                 {link.label}
               </Link>
@@ -126,7 +126,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
             >
               <LinkedinIcon />
             </Link>
@@ -135,7 +135,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
-              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
             >
               <InstagramIcon />
             </Link>
@@ -144,7 +144,7 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
-              className="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
+              className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary)] hover:text-white"
             >
               <FacebookIcon />
             </Link>

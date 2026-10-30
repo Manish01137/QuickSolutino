@@ -1,33 +1,20 @@
-import Image from "next/image";
 import { vendorIcons } from "@/data/content";
 import { Icon } from "./ui/Icon";
 import { Eyebrow } from "./ui/Eyebrow";
 import { Reveal } from "./ui/Reveal";
 import { Button } from "./ui/Button";
 import { VendorLogos } from "./ui/VendorLogos";
+import { VendorOrbit } from "./VendorOrbit";
 
 export function MultiVendorSupport() {
   return (
     <section id="solutions" className="relative isolate overflow-hidden bg-white">
       <div
-        className="absolute inset-x-0 top-1/2 hidden aspect-2014/780 w-full -translate-y-1/2 lg:block 5xl:left-auto 5xl:max-w-[2560px]"
-        style={{
-          maskImage: "linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent)",
-        }}
-      >
-        <Image
-          src="/banner.png"
-          alt="Server connected to multiple technology vendors including IBM, Dell, Cisco, Oracle, Hitachi and NetApp"
-          fill
-          sizes="100vw"
-          className="object-cover object-right"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/25 to-transparent" />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
-        <Reveal className="max-w-xl 3xl:max-w-2xl">
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-1/2 -z-10 h-[40rem] w-[40rem] -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(214,32,39,0.08),transparent)]"
+      />
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-6 sm:py-14 lg:grid-cols-2 lg:gap-12 lg:py-20 lg:px-8">
+        <Reveal className="min-w-0">
           <Eyebrow>Multi-Vendor Support</Eyebrow>
           <h2 className="mt-3 max-w-lg text-[2rem] font-extrabold leading-[1.12] text-[var(--color-ink)] sm:text-[2.625rem]">
             One Partner. Multiple Technology Vendors.
@@ -64,16 +51,8 @@ export function MultiVendorSupport() {
           </div>
         </Reveal>
 
-        <Reveal className="mt-12 lg:hidden">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-[0_24px_50px_-28px_rgba(214,32,39,0.45)] sm:aspect-[16/9]">
-            <Image
-              src="/banner.png"
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover object-[78%_center]"
-            />
-          </div>
+        <Reveal delay={0.1} className="mx-auto w-full max-w-[34rem] lg:max-w-none">
+          <VendorOrbit />
         </Reveal>
       </div>
     </section>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { services, getServiceBySlug } from "@/data/services";
+import { getImageAspect } from "@/lib/imageSize";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -37,9 +38,9 @@ export default async function ServicePage({
     <>
       {/* Header */}
       <section className="hero-glow dot-grid border-b border-[var(--color-border)] bg-white">
-        <div className="mx-auto max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] px-5 pt-10 sm:px-6 sm:pt-16 lg:pt-24 lg:px-8">
+        <div className="mx-auto max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] px-5 pt-8 sm:px-6 sm:pt-12 lg:pt-14 lg:px-8">
           <RevealScale>
-            <div className="group relative mx-auto aspect-16/8 max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
+            <div style={{ aspectRatio: getImageAspect(service.image) }} className="group relative mx-auto max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] overflow-hidden rounded-3xl shadow-[0_30px_60px_-25px_rgba(15,23,42,0.35)]">
               <Image
                 src={service.image}
                 alt={service.h1}
@@ -53,7 +54,7 @@ export default async function ServicePage({
           </RevealScale>
         </div>
 
-        <div className="mx-auto max-w-4xl px-5 py-12 text-center sm:px-6 sm:py-16 lg:py-20 lg:px-8">
+        <div className="mx-auto max-w-4xl px-5 py-10 text-center sm:px-6 sm:py-12 lg:py-14 lg:px-8">
           <Reveal>
             <Eyebrow align="center">Services</Eyebrow>
             <h1 className="mt-3 text-[2rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2.5rem] lg:text-[2.875rem]">
@@ -77,7 +78,7 @@ export default async function ServicePage({
 
       {/* Content sections */}
       <section className="bg-white">
-        <div className="mx-auto max-w-5xl space-y-12 px-5 py-12 sm:space-y-14 sm:px-6 sm:py-16 lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-5xl space-y-10 px-5 py-10 sm:space-y-12 sm:px-6 sm:py-12 lg:py-16 lg:px-8">
           {service.sections.map((section) => (
             <Reveal key={section.heading}>
               <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
@@ -157,7 +158,7 @@ export default async function ServicePage({
 
       {/* CTA */}
       <section className="bg-[var(--color-dark-1)]">
-        <div className="mx-auto max-w-3xl px-5 py-14 text-center sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-12 text-center sm:px-6 sm:py-14 lg:px-8">
           <Reveal>
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               {service.ctaHeading}

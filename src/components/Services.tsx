@@ -7,14 +7,14 @@ import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
 export function Services() {
   return (
     <section id="services" className="dot-grid bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20 lg:px-8">
         <SectionHeading
           eyebrow="Our Services"
           title="End-to-End IT Infrastructure Services"
           align="center"
         />
 
-        <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:mt-12 sm:grid-cols-3 sm:gap-5 lg:grid-cols-6">
+        <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-5 lg:grid-cols-6">
           {primaryServices.map((service) => (
             <RevealItem key={service.number}>
               <Link
@@ -41,7 +41,7 @@ export function Services() {
           ))}
         </RevealGroup>
 
-        <Reveal delay={0.15} className="mt-10 flex justify-center">
+        <Reveal delay={0.15} className="mt-8 flex justify-center">
           <Link
             href="/services"
             className="group/btn inline-flex items-center gap-2 rounded-full border-2 border-dashed border-[var(--color-ink)]/25 px-8 py-3.5 text-sm font-bold text-[var(--color-ink)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] hover:shadow-[0_14px_28px_-18px_rgba(214,32,39,0.25)]"

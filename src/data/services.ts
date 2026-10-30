@@ -104,7 +104,7 @@ export const services: Service[] = [
     navTitle: "Third-Party Hardware Maintenance",
     icon: "wrench",
     iconImage: "/ServiceIcon/Third-Party Hardware Maintenance Services.png",
-    image: "/serviceImg/Third-Party Hardware Maintenance Services.png",
+    image: "/serviceImg/v2/third-party-hardware-maintenance.png",
     seoTitle: "Third-Party Hardware Maintenance Services | Quick Solutions",
     metaDescription:
       "Reduce IT maintenance costs with reliable third-party hardware maintenance for servers, storage and networking equipment. Multi-vendor support with flexible SLA options.",
@@ -184,7 +184,7 @@ export const services: Service[] = [
     navTitle: "Server, Storage & Network Support",
     icon: "server",
     iconImage: "/ServiceIcon/Server, Storage & Network Support.png",
-    image: "/serviceImg/Server, Storage & Network Support.png",
+    image: "/serviceImg/v2/server-storage-network-support.png",
     seoTitle: "Server, Storage & Network Support Services | Quick Solutions",
     metaDescription:
       "Expert server, storage and network infrastructure support for enterprise IT environments. Multi-vendor hardware support with 24x7 service and global coverage.",
@@ -319,7 +319,7 @@ export const services: Service[] = [
     navTitle: "Data Center Support",
     icon: "database",
     iconImage: "/ServiceIcon/Data Center Support Services.png",
-    image: "/serviceImg/Data Center Support Services.png",
+    image: "/serviceImg/v2/data-center-support.png",
     seoTitle:
       "Data Center Support Services | Smart Hands & IT Infrastructure | Quick Solutions",
     metaDescription:
@@ -429,7 +429,7 @@ export const services: Service[] = [
     navTitle: "Project Rollouts, Migrations & Deployments",
     icon: "rocket",
     iconImage: "/ServiceIcon/Project Rollouts, Migrations & Deployments.png",
-    image: "/serviceImg/Data Center & Office Relocation Services.png",
+    image: "/serviceImg/v2/project-rollouts-migrations-deployments.png",
     seoTitle:
       "IT Project Rollouts, Migrations & Deployment Services | Quick Solutions",
     metaDescription:
@@ -492,7 +492,7 @@ export const services: Service[] = [
     navTitle: "Dedicated Onsite & Resident Engineers",
     icon: "badgeCheck",
     iconImage: "/ServiceIcon/Dedicated Onsite & Resident Engineers.png",
-    image: "/serviceImg/Dedicated Onsite & Resident Engineers.png",
+    image: "/serviceImg/v2/dedicated-onsite-resident-engineers.png",
     seoTitle: "Dedicated Onsite & Resident IT Engineers | Quick Solutions",
     metaDescription:
       "Deploy dedicated onsite and resident IT engineers for ongoing infrastructure support, data centers, enterprise IT environments and end-user support.",
@@ -560,7 +560,7 @@ export const services: Service[] = [
     navTitle: "Warehousing, Logistics & Spare Management",
     icon: "warehouse",
     iconImage: "/ServiceIcon/IT Warehousing, Logistics & Spare Management.png",
-    image: "/serviceImg/Data Center Support Services.png",
+    image: "/serviceImg/v2/warehousing-logistics-spare-management.png",
     seoTitle:
       "IT Warehousing, Logistics & Spare Management Services | Quick Solutions",
     metaDescription:

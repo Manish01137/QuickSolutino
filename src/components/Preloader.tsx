@@ -10,10 +10,10 @@ import {
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { EMBLEM_RING, SPEED_LINES, TAIL, TIMING, createIntroCanvas } from "./preloader/engine";
+import { LOGO_RING, TIMING, createIntroCanvas } from "./preloader/engine";
+import { LOGO_H, LOGO_W } from "./preloader/logoPoints";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-const RED = "#d62027";
 const RED_LIGHT = "#f0555c";
 
 const LOG = [
@@ -30,9 +30,9 @@ const CORNERS = [
   "bottom-4 right-4 border-b border-r sm:bottom-8 sm:right-8",
 ];
 
-// Ring centre as a fraction of the emblem box: the iris opens from here.
-const RING_FX = EMBLEM_RING.cx / 160;
-const RING_FY = EMBLEM_RING.cy / 160;
+// The logo's Q ring centre as a fraction of the logo box: the iris opens from here.
+const RING_FX = LOGO_RING.cx / LOGO_W;
+const RING_FY = LOGO_RING.cy / LOGO_H;
 
 const istFormat = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Asia/Kolkata",
@@ -84,7 +84,7 @@ export function Preloader() {
       !reduce && canvasRef.current
         ? createIntroCanvas(canvasRef.current, () => {
             const r = emblemRef.current?.getBoundingClientRect();
-            return r ? { x: r.left, y: r.top, scale: r.width / 160 } : { x: 0, y: 0, scale: 1 };
+            return r ? { x: r.left, y: r.top, scale: r.width / LOGO_W } : { x: 0, y: 0, scale: 1 };
           })
         : null;
 
@@ -214,32 +214,20 @@ export function Preloader() {
       </motion.div>
 
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
-        <div ref={emblemRef} className="relative aspect-square" style={{ width: "clamp(150px, 34vmin, 18.75rem)" }}>
+        <div
+          ref={emblemRef}
+          className="relative"
+          style={{ width: "clamp(260px, 56vmin, 36rem)", aspectRatio: `${LOGO_W} / ${LOGO_H}` }}
+        >
           <motion.div
             className="absolute inset-0"
             style={{ transformOrigin: `${RING_FX * 100}% ${RING_FY * 100}%` }}
             animate={exiting ? { scale: 9, opacity: 0 } : { scale: 1, opacity: 1 }}
             transition={{ duration: 1.1, ease: [0.7, 0, 0.84, 0] }}
           >
-            <Emblem brand={brand} progress={progressFrac} />
+            <LogoReveal brand={brand} progress={progressFrac} />
           </motion.div>
         </div>
-
-        <motion.div
-          className="mt-8 text-center sm:mt-10"
-          animate={exiting ? { opacity: 0, y: -12, filter: "blur(6px)" } : { opacity: 1 }}
-          transition={{ duration: 0.35 }}
-        >
-          <DecodeText text="QUICK" startMs={reduceMotion ? 0 : 1450} className="text-4xl font-extrabold tracking-tight sm:text-5xl" />
-          <motion.p
-            className="mt-2 text-[0.6875rem] font-semibold text-[#ff5a5f] sm:text-sm"
-            initial={{ opacity: 0, letterSpacing: "1.2em" }}
-            animate={brand ? { opacity: 1, letterSpacing: "0.5em" } : { opacity: 0, letterSpacing: "1.2em" }}
-            transition={{ duration: 1.1, ease: EASE }}
-          >
-            SOLUTIONS
-          </motion.p>
-        </motion.div>
       </div>
 
       <motion.div
@@ -289,123 +277,71 @@ export function Preloader() {
   );
 }
 
-function QStrokes({ stroke }: { stroke: string }) {
+const LOGO_SRC = "/brand/quick-solutions-logo-white.svg";
+const LOGO_MASK = `url(${LOGO_SRC}) center / contain no-repeat`;
+// Orbit ring around the logo's Q bubble, as a fraction of the logo box.
+const ORBIT_D = 64 / LOGO_W;
+
+function LogoReveal({ brand, progress }: { brand: boolean; progress: MotionValue<number> }) {
   return (
-    <g stroke={stroke} strokeWidth={EMBLEM_RING.width} strokeLinecap="round" fill="none">
-      {SPEED_LINES.map((l) => (
-        <line key={l.y} x1={l.x1} y1={l.y} x2={l.x2} y2={l.y} />
-      ))}
-      <circle cx={EMBLEM_RING.cx} cy={EMBLEM_RING.cy} r={EMBLEM_RING.r} />
-      <line x1={TAIL.x1} y1={TAIL.y1} x2={TAIL.x2} y2={TAIL.y2} />
-    </g>
-  );
-}
-
-function Emblem({ brand, progress }: { brand: boolean; progress: MotionValue<number> }) {
-  return (
-    <svg viewBox="0 0 160 160" className="h-full w-full overflow-visible" fill="none" aria-hidden>
-      <defs>
-        {/* userSpaceOnUse: the horizontal speed lines have a zero-height bbox, which bbox-relative gradients can't paint. */}
-        <linearGradient id="ql-fill" gradientUnits="userSpaceOnUse" x1="18" y1="40" x2="130" y2="124">
-          <stop offset="0" stopColor="#ff6b70" />
-          <stop offset="0.55" stopColor={RED} />
-          <stop offset="1" stopColor="#a8121a" />
-        </linearGradient>
-        <linearGradient id="ql-shine" x1="0" x2="1" y1="0" y2="0">
-          <stop offset="0" stopColor="#fff" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#fff" stopOpacity="0.95" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
-        </linearGradient>
-        <mask id="ql-mask" maskUnits="userSpaceOnUse" x="-20" y="-20" width="200" height="200">
-          <QStrokes stroke="#fff" />
-        </mask>
-      </defs>
-
-      <g className="animate-[spin_14s_linear_infinite]" style={{ transformOrigin: "80px 80px", transformBox: "view-box" }}>
-        <circle cx="80" cy="80" r="77" stroke="rgba(255,255,255,0.14)" strokeWidth="0.6" strokeDasharray="1.5 5" />
-        <circle cx="80" cy="3" r="2" fill={RED_LIGHT} />
-        <circle cx="146.7" cy="118.5" r="1.4" fill="#fff" />
-      </g>
-
-      <circle cx="80" cy="80" r="70" stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
-      <motion.circle
-        cx="80"
-        cy="80"
-        r="70"
-        stroke={RED_LIGHT}
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        transform="rotate(-90 80 80)"
-        style={{ pathLength: progress }}
-      />
-
-      <motion.g
-        initial={{ opacity: 0 }}
-        animate={{ opacity: brand ? 1 : 0 }}
-        transition={{ duration: 0.7, ease: EASE }}
-        style={{ filter: "drop-shadow(0 0 14px rgba(214,32,39,0.55))" }}
+    <>
+      <svg
+        viewBox="0 0 100 100"
+        aria-hidden
+        className="absolute overflow-visible"
+        style={{
+          width: `${ORBIT_D * 100}%`,
+          left: `${(RING_FX - ORBIT_D / 2) * 100}%`,
+          top: "50%",
+          transform: `translateY(calc(-50% + ${(RING_FY - 0.5) * 100}%))`,
+          aspectRatio: "1",
+        }}
+        fill="none"
       >
-        <QStrokes stroke="url(#ql-fill)" />
-        <circle cx={EMBLEM_RING.cx} cy={EMBLEM_RING.cy} r="7" fill="#fff" />
-      </motion.g>
-
-      <g mask="url(#ql-mask)">
-        <g transform="skewX(-18)">
-          <motion.rect
-            y="-10"
-            width="40"
-            height="190"
-            fill="url(#ql-shine)"
-            initial={{ x: -60 }}
-            animate={{ x: brand ? 220 : -60 }}
-            transition={{ duration: 1, delay: brand ? 0.45 : 0, ease: [0.65, 0, 0.35, 1] }}
-          />
+        <g className="animate-[spin_14s_linear_infinite]" style={{ transformOrigin: "50px 50px", transformBox: "view-box" }}>
+          <circle cx="50" cy="50" r="49" stroke="rgba(255,255,255,0.14)" strokeWidth="0.5" strokeDasharray="1.2 4" />
+          <circle cx="50" cy="1" r="1.6" fill={RED_LIGHT} />
+          <circle cx="92.4" cy="74.5" r="1.1" fill="#fff" />
         </g>
-      </g>
-    </svg>
-  );
-}
+        <circle cx="50" cy="50" r="44" stroke="rgba(255,255,255,0.08)" strokeWidth="0.8" />
+        <motion.circle
+          cx="50"
+          cy="50"
+          r="44"
+          stroke={RED_LIGHT}
+          strokeWidth="1.1"
+          strokeLinecap="round"
+          transform="rotate(-90 50 50)"
+          style={{ pathLength: progress }}
+        />
+      </svg>
 
-const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&@";
+      {/* The real logo, revealed over the particles that formed it. */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ opacity: 0, filter: "blur(6px)" }}
+        animate={brand ? { opacity: 1, filter: "blur(0px)" } : { opacity: 0, filter: "blur(6px)" }}
+        transition={{ duration: 0.8, ease: EASE }}
+        style={{ filter: "drop-shadow(0 0 22px rgba(214,32,39,0.45))" }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={LOGO_SRC} alt="Quick Solutions — Your Local Service Provider" className="h-full w-full" draggable={false} />
+      </motion.div>
 
-function DecodeText({ text, startMs, className }: { text: string; startMs: number; className: string }) {
-  const [out, setOut] = useState(() => text.replace(/./g, " "));
-
-  useEffect(() => {
-    const t0 = performance.now();
-    const id = window.setInterval(() => {
-      const t = performance.now() - t0 - startMs;
-      if (t < 0) return;
-      let done = true;
-      const next = text
-        .split("")
-        .map((ch, i) => {
-          if (t >= 260 + i * 90) return ch;
-          done = false;
-          return t >= i * 45 ? GLYPHS[Math.floor(Math.random() * GLYPHS.length)] : " ";
-        })
-        .join("");
-      setOut(next);
-      if (done) window.clearInterval(id);
-    }, 45);
-    return () => window.clearInterval(id);
-  }, [text, startMs]);
-
-  // Fixed-width slots stop the scramble jittering; once decoded, use natural letter spacing.
-  if (out === text) return <p className={className}>{text}</p>;
-
-  return (
-    <p className={className} aria-label={text}>
-      {out.split("").map((ch, i) => (
-        <span
-          key={i}
-          aria-hidden
-          className={`inline-block min-w-[0.62em] text-center ${ch === text[i] ? "text-white" : "text-[#ff5a5f]"}`}
-        >
-          {ch}
-        </span>
-      ))}
-    </p>
+      {/* Light sweep clipped to the logo's own shape. */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        style={{ mask: LOGO_MASK, WebkitMask: LOGO_MASK }}
+      >
+        <motion.div
+          className="absolute inset-y-[-20%] w-1/4 -skew-x-[18deg] bg-gradient-to-r from-transparent via-white/90 to-transparent"
+          initial={{ left: "-35%" }}
+          animate={{ left: brand ? "120%" : "-35%" }}
+          transition={{ duration: 1.1, delay: brand ? 0.4 : 0, ease: [0.65, 0, 0.35, 1] }}
+        />
+      </div>
+    </>
   );
 }
 

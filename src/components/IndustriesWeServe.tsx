@@ -6,7 +6,7 @@ import { RevealGroup, RevealItem } from "./ui/Reveal";
 export function IndustriesWeServe() {
   return (
     <section id="industries" className="bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20 lg:px-8">
         <SectionHeading
           eyebrow="IT Support Built For Your Industry"
           title="Industries We Serve"
@@ -20,7 +20,7 @@ export function IndustriesWeServe() {
         </p>
 
         {/* Phones: swipeable snap carousel. Tablet and up: grid. */}
-        <RevealGroup className="no-scrollbar -mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-6 sm:mx-0 sm:mt-12 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
+        <RevealGroup className="no-scrollbar -mx-5 mt-4 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-6 sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-3">
           {industries.map((industry) => (
             <RevealItem key={industry.name} className="w-[78%] shrink-0 snap-start sm:w-auto">
               <div className="group relative h-80 overflow-hidden rounded-3xl shadow-[0_20px_40px_-24px_rgba(15,23,42,0.45)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_28px_48px_-20px_rgba(15,23,42,0.4)] sm:h-64 sm:rounded-2xl 3xl:h-72">

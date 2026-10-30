@@ -37,7 +37,7 @@ export default async function CaseStudyPage({
     <>
       {/* Header */}
       <section className="hero-glow dot-grid border-b border-[var(--color-border)] bg-white">
-        <div className="mx-auto max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] px-5 py-12 text-center sm:px-6 sm:py-16 lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-4xl 2xl:max-w-5xl 3xl:max-w-[87.5rem] px-5 py-10 text-center sm:px-6 sm:py-12 lg:py-16 lg:px-8">
           <Reveal>
             <Eyebrow align="center">Case Study</Eyebrow>
             <h1 className="mx-auto mt-3 max-w-4xl text-[1.625rem] font-extrabold leading-tight text-[var(--color-ink)] sm:text-[2rem] lg:text-[2.375rem]">
@@ -83,7 +83,7 @@ export default async function CaseStudyPage({
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-4xl px-5 py-12 sm:px-6 sm:py-16 lg:py-24 lg:px-8">
+        <div className="mx-auto max-w-4xl px-5 py-10 sm:px-6 sm:py-12 lg:py-16 lg:px-8">
           {/* Problem */}
           <Reveal>
             <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
@@ -112,7 +112,7 @@ export default async function CaseStudyPage({
           </Reveal>
 
           {/* Solution */}
-          <Reveal delay={0.05} className="mt-14">
+          <Reveal delay={0.05} className="mt-10">
             <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
               The Solution
             </h2>
@@ -142,7 +142,7 @@ export default async function CaseStudyPage({
           </Reveal>
 
           {/* Outcomes */}
-          <Reveal delay={0.05} className="mt-14">
+          <Reveal delay={0.05} className="mt-10">
             <h2 className="text-xl font-extrabold text-[var(--color-ink)] sm:text-2xl">
               The Outcomes
             </h2>
@@ -168,7 +168,7 @@ export default async function CaseStudyPage({
           </Reveal>
 
           {/* Testimonial */}
-          <Reveal delay={0.05} className="mt-14">
+          <Reveal delay={0.05} className="mt-10">
             <div className="rounded-2xl bg-[var(--color-alt-bg)] p-8 sm:p-10">
               <p className="text-lg font-medium italic leading-relaxed text-[var(--color-ink)] sm:text-xl">
                 &ldquo;{study.testimonial}&rdquo;
@@ -180,7 +180,7 @@ export default async function CaseStudyPage({
 
       {/* CTA */}
       <section className="bg-[var(--color-dark-1)]">
-        <div className="mx-auto max-w-3xl px-5 py-14 text-center sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-3xl px-5 py-12 text-center sm:px-6 sm:py-14 lg:px-8">
           <Reveal>
             <h2 className="text-2xl font-extrabold text-white sm:text-3xl">
               Ready for results like these?

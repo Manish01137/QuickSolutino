@@ -22,7 +22,7 @@ export function GlobalCoverage() {
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--color-dark-1)] to-transparent" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:py-28 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20 lg:px-8">
         <Reveal className="max-w-2xl">
           <Eyebrow>Global Coverage</Eyebrow>
           <h2 className="mt-3 text-[1.875rem] font-extrabold leading-tight text-white sm:text-[2.25rem] lg:text-[2.75rem]">
@@ -54,7 +54,7 @@ export function GlobalCoverage() {
           ))}
         </RevealGroup>
 
-        <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:mt-14 sm:gap-5 lg:mt-20 lg:grid-cols-4">
+        <RevealGroup className="mt-10 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-5 lg:mt-12 lg:grid-cols-4">
           {regions.map((region) => (
             <RevealItem
               key={region.name}

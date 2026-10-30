@@ -20,7 +20,7 @@ function teaser(problem: string) {
 export default function CaseStudiesIndexPage() {
   return (
     <section className="hero-glow dot-grid bg-white">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 lg:py-24 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-12 lg:py-16 lg:px-8">
         <SectionHeading
           eyebrow="Proven Results"
           title="Case Studies"
@@ -28,7 +28,7 @@ export default function CaseStudiesIndexPage() {
           align="center"
         />
 
-        <RevealGroup className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 3xl:gap-8">
+        <RevealGroup className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 3xl:gap-8">
           {caseStudies.map((study) => (
             <RevealItem key={study.slug}>
               <Link
