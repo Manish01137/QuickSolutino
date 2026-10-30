@@ -180,6 +180,20 @@ html[data-intro-seen] #intro-loader {
   transform: scale(1.08);
 }
 
+.service-hero-float {
+  animation: vo-float 6s ease-in-out infinite;
+}
+
+.vendor-marquee {
+  animation: vendor-marquee 38s linear infinite;
+}
+
+@keyframes vendor-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .no-scrollbar {
   scrollbar-width: none;
 }

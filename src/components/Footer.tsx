@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { BadgeCheck, Mail, Phone, Globe, MapPin } from "lucide-react";
+import { Mail, Phone, Globe, MapPin } from "lucide-react";
 import { Logo } from "./Logo";
+import { IsoSeal } from "./ui/IsoSeal";
 import { navLinks } from "@/data/content";
 import { LinkedinIcon, InstagramIcon, FacebookIcon } from "./ui/SocialIcons";
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal";
@@ -75,10 +76,11 @@ export function Footer() {
                 </span>
               </div>
             </div>
-            <div className="mt-7 flex items-start gap-3 border-t border-white/10 pt-5">
-              <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[var(--color-primary)]" />
+            <div className="mt-7 flex items-center gap-4 border-t border-white/10 pt-6">
+              <IsoSeal className="h-16 w-16 shrink-0 drop-shadow-[0_8px_18px_rgba(214,32,39,0.35)] sm:h-[4.5rem] sm:w-[4.5rem]" />
               <div>
-                <p className="text-sm font-bold text-white">ISO 9001:2015</p>
+                <p className="text-sm font-bold text-white">ISO 9001:2015 Certified</p>
+                <p className="mt-0.5 text-xs text-neutral-400">Quality Management System</p>
                 <p className="mt-1 text-xs text-neutral-400">
                   Certificate number: 305026071787Q
                 </p>
