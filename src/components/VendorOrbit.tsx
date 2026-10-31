@@ -46,7 +46,9 @@ function edgePoint(b: (typeof BUBBLES)[number]) {
   const dx = HUB.x - b.x;
   const dy = HUB.y - b.y;
   const d = Math.hypot(dx, dy);
-  return { x: b.x + (dx / d) * (R + 4), y: b.y + (dy / d) * (R + 4) };
+  // Rounded so server and browser render identical values (avoids hydration mismatches).
+  const round = (n: number) => Math.round(n * 10) / 10;
+  return { x: round(b.x + (dx / d) * (R + 4)), y: round(b.y + (dy / d) * (R + 4)) };
 }
 
 export function VendorOrbit({ className = "" }: { className?: string }) {

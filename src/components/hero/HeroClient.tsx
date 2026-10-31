@@ -324,11 +324,15 @@ function Ring() {
   );
 }
 
+// Rounded so server and browser produce identical path strings: Math.hypot can differ in
+// the last floating-point digit between Node and the browser, which breaks hydration.
+const r2 = (n: number) => n.toFixed(2);
+
 function arcPath(a: WorldHub, b: WorldHub) {
   const midX = (a.x + b.x) / 2;
   const midY = (a.y + b.y) / 2;
   const lift = Math.hypot(b.x - a.x, b.y - a.y) * 0.32;
-  return `M${a.x} ${a.y} Q${midX} ${midY - lift} ${b.x} ${b.y}`;
+  return `M${r2(a.x)} ${r2(a.y)} Q${r2(midX)} ${r2(midY - lift)} ${r2(b.x)} ${r2(b.y)}`;
 }
 
 function WorldMap({ map }: { map: WorldMapArt }) {

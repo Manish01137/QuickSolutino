@@ -47,44 +47,44 @@ html {
 }
 
 /*
- * Large-screen scaling system.
- * Below 1536px nothing changes (16px root, 1280px container).
- * From 1536px the root font-size grows fluidly (16px → 24px, capped from ~3077px wide),
- * so every rem-based size (type, spacing, icons, cards, radii) scales together, and the
- * shared container (--container-7xl, used by navbar, sections and footer) steps wider:
- *   1536 → ~1360px · 1920 → ~1680px · 2560 → ~2100px · 3440 → ~2400px · 3840 → ~2800px
+ * Large-screen scaling system. Below 1536px nothing changes (16px root, 1280px container).
+ *
+ * Content scale: from 1536px the root font-size grows fluidly, so every rem-based size
+ * (type, spacing, icons, buttons, cards, radii) grows together:
+ *   1536 → 16px · 1920 → 19.2px (+20%) · 2304+ → 24px (+50%) · 3840 → 28px (+75%)
+ *
+ * Container width is set in px/vw, independently of the root, and is shared by the
+ * navbar, every section and the footer:
+ *   1536 → 1360px · 1920 → 1680px · 2560 → 2100px · 3440 → 2400px · 3840 → 2800px
  */
 @media (min-width: 96rem) {
   html {
-    font-size: clamp(1rem, 0.52vw + 0.5rem, 1.5rem);
+    font-size: clamp(1rem, 0.8333vw + 0.2rem, 1.5rem);
   }
   :root {
-    --container-7xl: 85rem;
+    --container-7xl: min(88.5vw, 1680px);
   }
 }
 
 @media (min-width: 120rem) {
   :root {
-    --container-7xl: 93.5rem;
-  }
-}
-
-@media (min-width: 160rem) {
-  :root {
-    --container-7xl: 98.5rem;
+    --container-7xl: min(87.5vw, 2100px);
   }
 }
 
 @media (min-width: 215rem) {
   :root {
-    --container-7xl: 100rem;
+    --container-7xl: 2400px;
   }
 }
 
-/* True 4K at 100% OS scaling: one more step (28px root → ~2800px container). */
+/* True 4K at 100% OS scaling. */
 @media (min-width: 240rem) {
   html {
     font-size: 1.75rem;
+  }
+  :root {
+    --container-7xl: 2800px;
   }
 }
 

@@ -21,7 +21,7 @@ function ServicesDesktopDropdown() {
     <div className="group relative">
       <Link
         href="/#services"
-        className="relative flex items-center gap-1 text-sm font-medium text-[var(--color-ink)] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[var(--color-primary)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-primary)] group-hover:after:scale-x-100"
+        className="relative flex items-center gap-1 text-[0.9375rem] font-medium text-[var(--color-ink)] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[var(--color-primary)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-primary)] group-hover:after:scale-x-100"
       >
         Services
         <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
@@ -141,7 +141,7 @@ export function Navbar() {
       />
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-500 sm:px-6 lg:px-8 ${
-          scrolled ? "py-2.5 sm:py-3" : "py-3.5 sm:py-4"
+          scrolled ? "py-2 sm:py-2.5" : "py-2.5 sm:py-3"
         }`}
       >
         <Link href="/#home" aria-label="Quick Solutions home">
@@ -156,7 +156,7 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="relative text-sm font-medium text-[var(--color-ink)] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[var(--color-primary)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-primary)] hover:after:scale-x-100"
+                className="relative text-[0.9375rem] font-medium text-[var(--color-ink)] transition-colors after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[var(--color-primary)] after:transition-transform after:duration-300 after:content-[''] hover:text-[var(--color-primary)] hover:after:scale-x-100"
               >
                 {link.label}
               </Link>

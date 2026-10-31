@@ -16,12 +16,12 @@ export function Logo({ dark = false }: { dark?: boolean }) {
 
   return (
     <Image
-      src="/brand/quick-solutions-logo.png"
-      alt="Quick Solutions"
+      src="/brand/quick-solutions-logo-dark.svg"
+      alt="Quick Solutions — Your Local Service Provider"
       width={200}
       height={78}
       priority
-      className="h-9 w-auto"
+      className="h-12 w-auto sm:h-14 lg:h-16"
     />
   );
 }
