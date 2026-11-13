@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Building2, Handshake, Send } from "lucide-react";
+import { Building2, CheckCircle2, Handshake, Loader2, Send } from "lucide-react";
 
 const FORMS = [
   {
@@ -10,7 +10,7 @@ const FORMS = [
     tab: "Customer Inquiry",
     icon: Building2,
     description: "Tell us what IT infrastructure support your business needs.",
-    recipient: "sales@quick-solutions.in",
+    email: "sales@quick-solutions.in",
     submitLabel: "Send Customer Inquiry",
   },
   {
@@ -18,7 +18,7 @@ const FORMS = [
     tab: "Partner With Us",
     icon: Handshake,
     description: "Join our delivery network or explore a partnership with Quick Solutions.",
-    recipient: "partnermanagement@quick-solutions.in",
+    email: "partnermanagement@quick-solutions.in",
     submitLabel: "Send Partner Inquiry",
   },
 ] as const;
@@ -48,9 +48,30 @@ function Field({
   );
 }
 
+type Status = "idle" | "sending" | "sent" | "error" | "rate_limited";
+
 export function ContactForms() {
   const [active, setActive] = useState(0);
+  const [status, setStatus] = useState<Status>("idle");
   const form = FORMS[active];
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (status === "sending") return;
+    setStatus("sending");
+
+    const data = Object.fromEntries(new FormData(event.currentTarget));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, type: form.key }),
+      });
+      setStatus(res.ok ? "sent" : res.status === 429 ? "rate_limited" : "error");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <div
@@ -66,7 +87,10 @@ export function ContactForms() {
               type="button"
               role="tab"
               aria-selected={selected}
-              onClick={() => setActive(i)}
+              onClick={() => {
+                setActive(i);
+                setStatus("idle");
+              }}
               className={`relative z-10 flex items-center justify-center gap-2 rounded-2xl px-2 py-3 text-[0.8125rem] font-semibold transition-colors duration-300 sm:text-sm ${
                 selected ? "text-[var(--color-primary)]" : "text-[var(--color-body)] hover:text-[var(--color-ink)]"
               }`}
@@ -86,45 +110,96 @@ export function ContactForms() {
       </div>
 
       <AnimatePresence mode="wait" initial={false}>
-        <motion.form
-          key={form.key}
-          action={`mailto:${form.recipient}`}
-          method="post"
-          encType="text/plain"
-          className="px-3.5 pb-4 pt-5 sm:px-6 sm:pb-6 sm:pt-6"
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -14 }}
-          transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="text-sm leading-relaxed text-[var(--color-body)]">{form.description}</p>
-
-          <div className="mt-5 grid gap-4 sm:grid-cols-2">
-            <Field label="Name" name="name" placeholder="Your name" required />
-            <Field label="Company" name="company" placeholder="Company name" />
-            <Field label="Email" name="email" type="email" placeholder="you@company.com" required />
-            <Field label="Phone" name="phone" type="tel" placeholder="Your phone number" />
-          </div>
-
-          <label className="mt-4 block text-[0.8125rem] font-semibold text-[var(--color-ink)]">
-            Message<span className="text-[var(--color-primary)]"> *</span>
-            <textarea
-              name="message"
-              required
-              rows={4}
-              placeholder="How can we help?"
-              className={`${inputClass} resize-y`}
-            />
-          </label>
-
-          <button
-            type="submit"
-            className="btn-shine group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_24px_-10px_rgba(214,32,39,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary-dark)] sm:w-auto"
+        {status === "sent" ? (
+          <motion.div
+            key={`${form.key}-sent`}
+            role="status"
+            className="flex flex-col items-center px-3.5 py-14 text-center sm:px-6 sm:py-20"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {form.submitLabel}
-            <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </button>
-        </motion.form>
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 ring-1 ring-emerald-100">
+              <CheckCircle2 className="h-8 w-8" />
+            </span>
+            <h3 className="mt-5 text-xl font-extrabold text-[var(--color-ink)]">Thank you, we received your message</h3>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-[var(--color-body)]">
+              Our team will get back to you shortly at the email address you provided.
+            </p>
+            <button
+              type="button"
+              onClick={() => setStatus("idle")}
+              className="mt-6 text-sm font-semibold text-[var(--color-primary)] hover:underline"
+            >
+              Send another message
+            </button>
+          </motion.div>
+        ) : (
+          <motion.form
+            key={form.key}
+            onSubmit={handleSubmit}
+            className="px-3.5 pb-4 pt-5 sm:px-6 sm:pb-6 sm:pt-6"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -14 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="text-sm leading-relaxed text-[var(--color-body)]">{form.description}</p>
+
+            {/* Honeypot: invisible to people, tempting to bots. */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden
+              className="absolute -left-[9999px] h-px w-px opacity-0"
+            />
+
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+              <Field label="Name" name="name" placeholder="Your name" required />
+              <Field label="Company" name="company" placeholder="Company name" />
+              <Field label="Email" name="email" type="email" placeholder="you@company.com" required />
+              <Field label="Phone" name="phone" type="tel" placeholder="Your phone number" />
+            </div>
+
+            <label className="mt-4 block text-[0.8125rem] font-semibold text-[var(--color-ink)]">
+              Message<span className="text-[var(--color-primary)]"> *</span>
+              <textarea
+                name="message"
+                required
+                rows={4}
+                maxLength={5000}
+                placeholder="How can we help?"
+                className={`${inputClass} resize-y`}
+              />
+            </label>
+
+            {(status === "error" || status === "rate_limited") && (
+              <p role="alert" className="mt-4 rounded-xl bg-[var(--color-chip)] px-4 py-3 text-sm leading-relaxed text-[var(--color-primary-dark)]">
+                {status === "rate_limited" ? "Too many messages sent. Please try again in a few minutes, or email us at " : "Sorry, your message couldn't be sent. Please try again, or email us at "}
+                <a href={`mailto:${form.email}`} className="font-semibold underline">
+                  {form.email}
+                </a>
+                .
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="btn-shine group mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[var(--color-primary)] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_12px_24px_-10px_rgba(214,32,39,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-primary-dark)] disabled:cursor-wait disabled:opacity-70 sm:w-auto"
+            >
+              {status === "sending" ? "Sending..." : form.submitLabel}
+              {status === "sending" ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <Send className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              )}
+            </button>
+          </motion.form>
+        )}
       </AnimatePresence>
     </div>
   );
